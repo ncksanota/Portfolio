@@ -1,7 +1,8 @@
 [
-  {"slug":"fohlio","title":"FOHLIO","type":"Webpage platform","description":"Redesigning Fohlio into a cohesive platform with smarter workflows and new features.","cover":"gGX5fkla389upDCAt9vdbyDATNM.png"},
-  {"slug":"Nebulink","title":"NEBULINK","type":"Mobile + Research","description":"Designed a mobile app for learning about and trading stocks and crypto.","cover":"4i10fexSzc7YgJQPsQeWcLponM.png"},
-  {"slug":"WAO-Shop","title":"WAO SHOP","type":"Mobile + Research","description":"Built user engagement features to improve in-app metrics.","cover":"gvNwcg2aSCCbrckk6ZWzCsZ3k.png"},
-  {"slug":"Unearth","title":"UNEARTH","type":"Webpage platform","description":"Enables users to create and explore digital time capsules.","cover":"GRNlKsXza1saTUpJa9SbV3QgEBY.png"},
-  {"slug":"Design-System","title":"DESIGN SYSTEM","type":"UI kit","description":"Standardized the bank's design system for scale across multiple devices.","cover":"T9xHetzVIi0WzKKrPT6MF8uFz8.png"}
+  {"slug":"spechub","title":"SPECHUB","type":"Product design + prototyping","description":"Connecting specification decisions, spatial context, and reusable standards in one prototype.","cover":"spechub-approvals-board.jpg","coverPosition":"center top","featured":true,"relatedSlugs":["fohlio"],"nextSlug":"Nebulink"},
+  {"slug":"fohlio","title":"FOHLIO","type":"Historical platform redesign","description":"Earlier work redesigning Fohlio into a more cohesive platform with smarter workflows.","cover":"gGX5fkla389upDCAt9vdbyDATNM.png","featured":false,"earlier":true,"relatedSlugs":["spechub"],"nextSlug":"spechub"},
+  {"slug":"Nebulink","title":"NEBULINK","type":"Mobile + Research","description":"Designed a mobile app for learning about and trading stocks and crypto.","cover":"4i10fexSzc7YgJQPsQeWcLponM.png","featured":true,"nextSlug":"WAO-Shop"},
+  {"slug":"WAO-Shop","title":"WAO SHOP","type":"Mobile + Research","description":"Built user engagement features to improve in-app metrics.","cover":"gvNwcg2aSCCbrckk6ZWzCsZ3k.png","featured":true,"nextSlug":"Unearth"},
+  {"slug":"Unearth","title":"UNEARTH","type":"Webpage platform","description":"Enables users to create and explore digital time capsules.","cover":"GRNlKsXza1saTUpJa9SbV3QgEBY.png","coverPosition":"center top","featured":true,"nextSlug":"Design-System"},
+  {"slug":"Design-System","title":"DESIGN SYSTEM","type":"UI kit","description":"Standardized the bank's design system for scale across multiple devices.","cover":"T9xHetzVIi0WzKKrPT6MF8uFz8.png","coverPosition":"center top","featured":true,"nextSlug":"spechub"}
 ]

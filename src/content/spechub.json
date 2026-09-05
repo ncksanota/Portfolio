@@ -1,0 +1,198 @@
+{
+  "title": "Spechub",
+  "type": "Product design + prototyping",
+  "eyebrow": "Fohlio v2 · Flagship case study",
+  "headline": "Keeping specification decisions moving.",
+  "hero": ["spechub-approvals-board.jpg"],
+  "heroLabels": ["Spechub approval review board showing item status and the current reviewer"],
+  "socialImage": "spechub-approvals-board.jpg",
+  "fullWidthHero": true,
+  "chapterNavigation": true,
+  "problemLabel": "The design question",
+  "problem": "How might a specification platform preserve context as work moves from selection to review, refusal, revision, and reuse?",
+  "overview": "Spechub is an interactive product prototype for architecture and design teams. I designed and iterated connected workflows that make the next decision, its owner, and the surrounding product context easier to understand.",
+  "role": [
+    "This case study focuses on my recorded design and prototype contributions inside a collaborative product effort. Existing platform, collaboration, and presentation foundations were extended rather than invented from scratch."
+  ],
+  "contribution": "Product design and interactive prototyping",
+  "duration": "May–August 2026 (reviewed work)",
+  "status": "Interactive prototype; not production software",
+  "collaborators": "Product and engineering teammates",
+  "sections": [
+    {
+      "id": "overview",
+      "chapterLabel": "Overview",
+      "title": "One connected system",
+      "blocks": [
+        "A specification is not a static list. It moves between designers, internal reviewers, clients, libraries, drawings, and presentations. Each handoff can lose the reasoning behind a choice or leave someone unsure of what happens next.",
+        "I treated that continuity as the central product problem. Across the prototype, I worked on decision states, recovery paths, spatial review, reusable collections, and controlled change. The goal was not to add disconnected features; it was to make a decision legible before, during, and after it happened.",
+        {
+          "type": "journey",
+          "label": "The connected loop",
+          "steps": [
+            {"title": "Specify", "detail": "Choose products and establish project context."},
+            {"title": "Review", "detail": "Route decisions to the right internal or client reviewer."},
+            {"title": "Recover", "detail": "Turn a refusal into assigned, actionable respec work."},
+            {"title": "Reuse", "detail": "Carry approved knowledge into standards and future projects."}
+          ]
+        },
+        {
+          "type": "image",
+          "src": "spechub-client-proposals.jpg",
+          "alt": "Spechub client proposals dashboard showing presentations, response status, and item outcomes",
+          "caption": "Client proposals sit beside specification work so item responses can return to the same working context. Sharing, signing, and access shown here are prototype behaviors."
+        }
+      ]
+    },
+    {
+      "id": "decision-loop",
+      "chapterLabel": "01 · Decisions",
+      "title": "A refusal should create a next action",
+      "blocks": [
+        "Approval work is easy to model as a status change. The harder problem is ownership: who can act now, what evidence they need, and where a rejected item goes. I extended an existing collaboration foundation with sequential approver steps, sign-off progress, reusable approval presets, ownership handoff, and action gating. Review cards surfaced both the decision and whose turn it was.",
+        "Client proposal work connected that internal process to item-by-item client responses. I integrated the proposal dashboard with specifications, added response summaries and requester views, and refined the composer and version activity. A teammate had introduced the initial presentation, signing, version-history, and magic-link foundation; my work focused on the integrated review journey and its later iterations.",
+        {
+          "type": "image",
+          "src": "spechub-approvals-board.jpg",
+          "alt": "Approval request board with review progress, product cards, and reviewer ownership",
+          "caption": "The review surface combines item decisions with progress and current ownership."
+        },
+        {"heading": "Designing the exception path"},
+        "A refusal needs more than a red badge. I created a return path into Respec Required that retains the source, refusal note, assignee, and deadline. From there, a designer can inspect the affected item, rework it, and mark it ready to re-enter the specification and review process.",
+        {
+          "type": "comparison",
+          "before": {
+            "src": "spechub-respec-four-option-before.jpg",
+            "alt": "Earlier respec modal with four choices for swap, revise, keep, or drop",
+            "label": "Earlier iteration · PR 153",
+            "caption": "The first path asked reviewers to classify each response before sending it to respec."
+          },
+          "after": {
+            "src": "spechub-respec-confirmation-after.jpg",
+            "alt": "Later respec confirmation modal with a single send action",
+            "label": "Later iteration · PR 168",
+            "caption": "The later path reduces the handoff to a confirmation and moves detailed resolution into the respec workspace."
+          }
+        },
+        "The repository evidence establishes that the interaction was simplified, but it does not establish a research finding behind that change. I present this as an iteration in interaction responsibility: the handoff records the problem; the work area supports the resolution.",
+        {
+          "type": "image",
+          "src": "spechub-respec-dashboard.jpg",
+          "alt": "Respec Required dashboard combining refused approval and client proposal items",
+          "caption": "A dedicated queue brings together refused items from internal approvals and client proposals."
+        },
+        {
+          "type": "image",
+          "src": "spechub-respec-item-detail.jpg",
+          "alt": "Respec item detail showing refusal context, assignment, deadline, and mark ready action",
+          "caption": "The item view keeps refusal context close to assignment and the action that returns work to the flow."
+        }
+      ]
+    },
+    {
+      "id": "spatial-specification",
+      "chapterLabel": "02 · Spatial",
+      "title": "From a floor plan to a reviewable specification",
+      "blocks": [
+        "Product data becomes more useful when a team can see where it belongs. I prototyped a spatial workflow that starts with a floor plan, inserts a human review step between extraction and specification, and connects product records to locations on a Spec Board.",
+        "The prototype simulates extraction; it does not perform production document analysis. That boundary shaped the flow. Detected areas and products are suggestions that a designer reviews, edits, and confirms before they become structured project data.",
+        {
+          "type": "journey",
+          "label": "Spatial specification flow",
+          "steps": [
+            {"title": "Review areas", "detail": "Check the spaces suggested from the uploaded drawing."},
+            {"title": "Review products", "detail": "Confirm detected tags before adding records."},
+            {"title": "Place context", "detail": "Inspect products as pins on the Spec Board."},
+            {"title": "Present", "detail": "Carry spatial context into an installation slide."}
+          ]
+        },
+        {
+          "type": "image",
+          "src": "spechub-extraction-review.jpg",
+          "alt": "Floor-plan review with a list of suggested spaces beside the drawing",
+          "caption": "Suggested spaces remain reviewable before they become project structure. Extraction is simulated in this prototype."
+        },
+        {
+          "type": "image",
+          "src": "spechub-matched-products-review.jpg",
+          "alt": "Floor plan with matched product tags and a review list of detected items",
+          "caption": "A second review state lets the designer verify product matches against the drawing."
+        },
+        {
+          "type": "image",
+          "src": "spechub-populated-spec-board.jpg",
+          "alt": "Populated Spec Board with product pins placed over an architectural floor plan",
+          "caption": "The populated board restores location as a first-class part of the specification."
+        },
+        {
+          "type": "image",
+          "src": "spechub-spec-board-pin-detail.jpg",
+          "alt": "Selected Spec Board pin with product details and actions",
+          "caption": "Selecting a pin connects a location back to the underlying product record and available actions."
+        },
+        {
+          "type": "image",
+          "src": "spechub-installation-presentation.jpg",
+          "alt": "Furniture installation presentation slide combining a floor plan with product imagery",
+          "caption": "The same spatial context can be composed into an installation-oriented presentation slide."
+        }
+      ]
+    },
+    {
+      "id": "reusable-standards",
+      "chapterLabel": "03 · Standards",
+      "title": "Reuse without losing control",
+      "blocks": [
+        "Standards libraries create leverage only when teams can understand their structure and control how changes travel. I redesigned collection and catalog interactions around product types with nested reference items, scoped pickers, category-first navigation, and clearer reference counts.",
+        "That hierarchy separates a reusable definition from the real products that can satisfy it. Instead of adding unrelated flat rows, a team can keep alternates and reference choices attached to the product type they explain.",
+        {
+          "type": "image",
+          "src": "spechub-collection-nested-references.jpg",
+          "alt": "Collection editor showing product types with nested reference products",
+          "caption": "Nested references make the relationship between a standard product type and candidate products visible in place."
+        },
+        {"heading": "Make change recoverable"},
+        "I added manual collection versions with names, timestamps, a current marker, and a restore path. In the prototype this is a practical recovery model, not a claim of enterprise audit guarantees. It lets a user identify a known state before restoring it.",
+        {
+          "type": "image",
+          "src": "spechub-version-restore.jpg",
+          "alt": "Collection version history panel with current version and restore controls",
+          "caption": "Named snapshots make the current collection state and available restore points explicit."
+        },
+        {"heading": "Choose the scope of publishing"},
+        "A reusable product can appear in many projects, so editing its core information creates a propagation decision. I worked on a two-step publishing interaction, scope choices, save-as-copy behavior, bulk publishing, comments, and an updates drawer. The prototype distinguishes a local edit from a controlled update to related uses; it does not demonstrate a shipped synchronization service.",
+        {
+          "type": "image",
+          "src": "spechub-controlled-publishing.jpg",
+          "alt": "Product updates drawer with change details, publish controls, and before and after values",
+          "caption": "The update surface shows what changed and asks the user to choose when that change should travel."
+        }
+      ]
+    },
+    {
+      "id": "shared-patterns",
+      "chapterLabel": "Patterns",
+      "title": "Patterns that carry the system",
+      "blocks": [
+        "Across these journeys, the interface repeats a small set of ideas: side sheets keep context visible, status language describes both state and responsibility, and confirmation moments appear where an action changes another person’s work. Saved-view behavior in this prototype uses local browser storage, so I do not present it as cross-device persistence.",
+        "The visual consistency matters, but the more important system is behavioral. The same concepts—source, owner, state, scope, and next action—appear in approvals, respec, spatial review, collections, versions, and publishing. Reusing those concepts helps a dense platform feel learnable without pretending every workflow is identical."
+      ]
+    },
+    {
+      "id": "reflection",
+      "chapterLabel": "Reflection",
+      "title": "What the prototype clarified",
+      "blocks": [
+        "This work reinforced that complex tools become clearer when the exception path receives as much attention as the happy path. A refusal, uncertain extraction, old version, or unpublished change is not edge-case debris; it is where users need the strongest explanation of what happened and what they can do next.",
+        "The reviewed record supports the interactions and iterations shown here. It does not prove production adoption, time savings, research leadership, or business outcomes, so those claims are intentionally absent. The next useful step would be to evaluate the connected journeys with working teams and measure whether ownership and handoffs are understood without facilitation.",
+        {
+          "type": "relatedWork",
+          "slug": "fohlio",
+          "eyebrow": "Earlier work · Q3 2024–Q1 2026",
+          "title": "Fohlio platform redesign",
+          "text": "See the earlier platform redesign that preceded this separately audited Spechub prototype work."
+        }
+      ]
+    }
+  ]
+}
