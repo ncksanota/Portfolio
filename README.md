@@ -34,7 +34,7 @@ The build writes only to `dist/`. Edit source files, not generated HTML.
 
 The included workflow builds and checks the site and publishes `dist/` when `main` changes. In the repository, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Use a public repository for free Pages hosting on a GitHub Free account.
 
-When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Design-System/`.
+When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. Starjob remains outside the homepage’s five featured cards but is preserved in the original next-project sequence.
 
 If the repository has not yet been created, sign in to the GitHub CLI with `gh auth login`, then, from this directory:
 
