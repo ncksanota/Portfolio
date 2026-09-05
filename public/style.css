@@ -1388,3 +1388,24 @@
 [data-motion="reduce"] .hero-copy,[data-motion="reduce"] .portrait-stage { transform: none!important; }
 html:has([data-motion="reduce"]) { scroll-behavior: auto; }
 html:has([data-motion="reduce"])::view-transition-group(*),html:has([data-motion="reduce"])::view-transition-old(*),html:has([data-motion="reduce"])::view-transition-new(*) { animation-duration: 0s!important; }
+/* Rich case-study blocks preserve the Spechub narrative and evidence. */
+.case-hero-stage--wide { height: auto; padding: 0 0 40px; }
+.case-hero-stage--wide img { max-width: 100%; width: 100%; filter: none; }
+.case-section--rich { grid-template-columns: 1fr; }
+.case-section--rich .section-body { max-width: none; }
+.case-section--rich .section-body>p { max-width: var(--reading); }
+.case-section--rich .case-media { margin-block: 32px; }
+.case-section--rich figcaption { line-height: 1.7; }
+.comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-block: 35px; }
+.comparison .case-media { margin-top: 12px; }
+.journey { border-block: 1px solid var(--line); padding: 28px 0; margin-block: 35px; }
+.journey ol { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+.journey li+li { margin: 0; }
+.journey strong { display: block; margin-block: 12px; color: var(--text); }
+.journey li p { font-size: 14px; }
+.related-work { display: block; border: 1px solid var(--line); padding: 28px; margin-top: 35px; }
+.related-work strong { display: block; font-size: 24px; margin: 15px 0; }
+@media(max-width:1000px) { .journey ol { grid-template-columns: 1fr 1fr; } }
+@media(max-width:700px) { .comparison { grid-template-columns: 1fr; } }
+
+.case-section--chapter>.section-label { display: none; }

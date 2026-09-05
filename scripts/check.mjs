@@ -33,9 +33,28 @@ for (const project of projects) {
     const content = JSON.parse(await readFile(path.join(projectRoot, 'src/content', `${project.slug}.json`), 'utf8'));
     if (!content.title || !content.overview || !content.problem) errors.push(`${project.slug}.json: missing core case-study content`);
     if (!Array.isArray(content.sections) || !content.sections.length) errors.push(`${project.slug}.json: expected at least one section`);
+    const sectionIds = (content.sections || []).map((section) => section.id).filter(Boolean);
+    if (new Set(sectionIds).size !== sectionIds.length) errors.push(`${project.slug}.json: section ids must be unique`);
+    if (content.chapterNavigation && sectionIds.length !== content.sections.length) errors.push(`${project.slug}.json: chapter navigation requires an id on every section`);
+    for (const section of content.sections || []) {
+      for (const block of section.blocks || []) {
+        if (block?.type === 'image' && (!block.src || !block.alt || !block.caption)) errors.push(`${project.slug}.json: rich images require src, alt, and caption`);
+        if (block?.type === 'video' && (!block.src || !block.alt || !block.caption)) errors.push(`${project.slug}.json: rich videos require src, alt, and caption`);
+        if (block?.type === 'comparison') {
+          for (const side of ['before', 'after']) if (!block[side]?.src || !block[side]?.alt || !block[side]?.caption || !block[side]?.label) errors.push(`${project.slug}.json: comparisons require complete before and after media`);
+        }
+        if (block?.type === 'journey' && (!block.label || !Array.isArray(block.steps) || block.steps.length < 2)) errors.push(`${project.slug}.json: journeys require a label and at least two steps`);
+        if (block?.type === 'relatedWork' && !slugs.includes(block.slug)) errors.push(`${project.slug}.json: related work points to unknown slug ${block.slug}`);
+      }
+    }
   } catch {
     errors.push(`Missing or invalid content file: src/content/${project.slug}.json`);
   }
+}
+
+for (const project of projects) {
+  if (project.nextSlug && !slugs.includes(project.nextSlug)) errors.push(`src/projects.json: ${project.slug} has unknown nextSlug ${project.nextSlug}`);
+  for (const slug of project.relatedSlugs || []) if (!slugs.includes(slug)) errors.push(`src/projects.json: ${project.slug} has unknown related slug ${slug}`);
 }
 
 const all = await walk(root);
@@ -50,7 +69,10 @@ let references = 0;
 for (const project of projects) {
  const source=JSON.parse(await readFile(path.join(projectRoot,'src/content',project.slug+'.json'),'utf8'));
  const html=await readFile(path.join(root,project.slug,'index.html'),'utf8');
- const media=[...source.hero,...(source.overviewMedia||[]),...source.sections.flatMap(s=>s.media||[])];
+ const richMedia=[];
+ const collect=value=>{if(!value||typeof value!=='object')return;for(const [key,item] of Object.entries(value)){if((key==='src'||key==='poster')&&typeof item==='string')richMedia.push(item);else collect(item);}};
+ collect(source.sections);
+ const media=[...source.hero,...(source.overviewMedia||[]),...source.sections.flatMap(s=>s.media||[]),...richMedia];
  for(const file of media) if(!html.includes(file))errors.push(`${project.slug}: missing source media ${file}`);
  for(const tab of html.matchAll(/role="tab"[^>]*aria-controls="([^"]+)"/g)) if(!html.includes(`id="${tab[1]}"`))errors.push(`${project.slug}: missing demo panel ${tab[1]}`);
 }
@@ -93,7 +115,8 @@ for (const file of htmlFiles) {
     }
     if (/^(https?:|mailto:|data:)/.test(url)) continue;
 
-    const [pathname, fragment] = url.split('#');
+    const [pathnameWithQuery, fragment] = url.split('#');
+    const pathname = pathnameWithQuery.split('?')[0];
     let resolved = path.resolve(
       siteAbsolute ? root : path.dirname(file),
       decodeURIComponent(pathname || (siteAbsolute ? 'index.html' : path.basename(file))),

@@ -69,3 +69,5 @@ Fohlio’s source distinguishes reported and early-test results from projected b
 ## Verification
 
 Run `npm run build` and `npm run check`. The checker validates routes, metadata, unique anchors, source media retention, image dimensions, tab relationships, and local files. Browser verification for v2 covers 320px, 390px, and 1440px route layouts, demo keyboard selection, contact copy feedback, and representative visual compositions. Automated browser observations are a layout and interaction check, not a formal assistive-technology audit or a measured Core Web Vitals report.
+
+The PR integrates the latest Spechub case study from main, including its lead placement, prototype status, collaboration context, rich media, comparisons, journeys, social image, and related links. Fohlio remains identified as historical work.

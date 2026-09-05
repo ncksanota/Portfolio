@@ -42,7 +42,7 @@ The build writes only to `dist/`. Edit source files, not generated HTML. All con
 
 The included workflow builds and checks the site and publishes `dist/` when `main` changes. In the repository, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Use a public repository for free Pages hosting on a GitHub Free account.
 
-When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. The homepage features Fohlio, WAO Shop, and Nebulink; Unearth, Starjob, and Design System remain directly accessible in the More to explore index. The original next-project sequence is preserved.
+When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. The homepage features Spechub, WAO Shop, and Nebulink; Fohlio, Unearth, Starjob, and Design System remain directly accessible in the More to explore index. Explicit next-project and related-work links from the latest project inventory are preserved.
 
 If the repository has not yet been created, sign in to the GitHub CLI with `gh auth login`, then, from this directory:
 
@@ -64,3 +64,5 @@ No DNS settings or Framer subscription were changed by preparing this repository
 ## Assets and ownership
 
 Portfolio copy, branding, screenshots, and prototype recordings are carried over from the owner's public site. They are not assigned a new open-source license. Fonts use their original upstream licenses (see `public/assets/licenses/`). No Framer analytics, scripts, editor integration, or external font/image hosting is required. The existing social-preview image and favicon are preserved as local assets. Images were downloaded at up to 2048px; the provenance manifest retains their original URLs for higher-resolution retrieval.
+
+The PR integrates the latest Spechub case study from main, including its lead placement, prototype status, collaboration context, rich media, comparisons, journeys, social image, and related links. Fohlio remains identified as historical work.
