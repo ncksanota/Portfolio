@@ -21,22 +21,41 @@ document.querySelectorAll('[data-motion-toggle]').forEach(button => button.addEv
 }));
 syncMotionPreference();
 const hero = document.querySelector('.hero');
-let heroTimer;
-function replayHero() {
-  if (!hero || reducedMotion.matches) return;
-  clearTimeout(heroTimer);
-  hero.classList.remove('is-playing');
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    hero.classList.add('is-playing');
-    heroTimer = setTimeout(() => hero.classList.remove('is-playing'), 2000);
-  }));
+const portrait = hero?.querySelector('.portrait-stage');
+let portraitVisible = false;
+let heroEndTimer;
+let heroRepeatTimer;
+const canAnimateHero = () => hero && portraitVisible && !document.hidden && !reducedMotion.matches;
+function stopHeroAnimation() {
+  clearTimeout(heroEndTimer);
+  clearTimeout(heroRepeatTimer);
+  heroEndTimer = heroRepeatTimer = undefined;
+  hero?.classList.remove('is-playing');
 }
-const replay = document.querySelector('[data-replay]');
-if (replay) {
-  replay.hidden = reducedMotion.matches;
-  replay.addEventListener('click', replayHero);
-  replayHero();
+function playHeroAnimation() {
+  if (!canAnimateHero()) { stopHeroAnimation(); return; }
+  hero.classList.add('is-playing');
+  heroEndTimer = setTimeout(() => {
+    hero.classList.remove('is-playing');
+    heroEndTimer = undefined;
+  }, 2000);
+  heroRepeatTimer = setTimeout(playHeroAnimation, 15000);
 }
+function syncHeroAnimation() {
+  if (!canAnimateHero()) stopHeroAnimation();
+  else if (heroRepeatTimer === undefined) playHeroAnimation();
+}
+if (portrait && 'IntersectionObserver' in window) {
+  const portraitObserver = new IntersectionObserver(([entry]) => {
+    portraitVisible = entry.isIntersecting && entry.intersectionRatio >= .2;
+    syncHeroAnimation();
+  }, {threshold: .2});
+  portraitObserver.observe(portrait);
+}
+document.addEventListener('visibilitychange', syncHeroAnimation);
+reducedMotion.addEventListener('change', syncHeroAnimation);
+addEventListener('pagehide', stopHeroAnimation);
+addEventListener('pageshow', syncHeroAnimation);
 const reveals = [...document.querySelectorAll('.reveal')];
 if ('IntersectionObserver' in window && !reducedMotion.matches) {
   const observer = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -48,11 +67,9 @@ if ('IntersectionObserver' in window && !reducedMotion.matches) {
   });
 }
 reducedMotion.addEventListener('change', () => {
-  if (replay) replay.hidden = reducedMotion.matches;
   if (reducedMotion.matches) {
     hero?.classList.remove('is-playing');
     reveals.forEach(el => el.classList.remove('is-waiting'));
-    clearTimeout(heroTimer);
   }
 });
 // Copy controls are scoped, announce success/failure, and never block email links.
@@ -123,12 +140,55 @@ if(chapterLinks.length){
  addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateChapter);}},{passive:true});
  updateChapter();
 }
-// Stop media that is no longer visible or when the page is backgrounded.
-if('IntersectionObserver' in window){
- const videos=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting})=>{if(!isIntersecting)target.pause();}),{threshold:.05});
- document.querySelectorAll('video').forEach(video=>videos.observe(video));
+// Project previews play only while visible; native controls remain available.
+const visibleVideos = new Set();
+const manuallyPausedVideos = new WeakSet();
+function syncPreviewVideo(video) {
+  if (document.hidden || !visibleVideos.has(video) || video.closest('[hidden]')) {
+    video.pause();
+  } else if (video.hasAttribute('data-auto-preview')) {
+    if (reducedMotion.matches) video.pause();
+    else if (!manuallyPausedVideos.has(video)) video.play().catch(() => {});
+  }
 }
-document.addEventListener('visibilitychange',()=>{if(document.hidden)document.querySelectorAll('video').forEach(video=>video.pause());});
+if ('IntersectionObserver' in window) {
+  const videos = new IntersectionObserver(entries => entries.forEach(({target,isIntersecting,intersectionRatio}) => {
+    if (isIntersecting && intersectionRatio >= .25) visibleVideos.add(target);
+    else visibleVideos.delete(target);
+    syncPreviewVideo(target);
+  }), {threshold: [0,.25]});
+  document.querySelectorAll('video').forEach(video => {
+    if (video.hasAttribute('data-auto-preview')) {
+      video.muted = true;
+      video.addEventListener('pause', () => {
+        if (!document.hidden && !reducedMotion.matches && visibleVideos.has(video) && !video.closest('[hidden]')) manuallyPausedVideos.add(video);
+      });
+      video.addEventListener('play', () => manuallyPausedVideos.delete(video));
+    }
+    videos.observe(video);
+  });
+}
+const syncVideoPreviews = () => document.querySelectorAll('video').forEach(syncPreviewVideo);
+document.addEventListener('visibilitychange', syncVideoPreviews);
+reducedMotion.addEventListener('change', syncVideoPreviews);
+// Swap the GIF for its still when motion is disabled or the media is offscreen.
+const visibleAnimations = new Set();
+function syncAnimatedImages() {
+  document.querySelectorAll('[data-animated-src]').forEach(img => {
+    const source = !reducedMotion.matches && !document.hidden && visibleAnimations.has(img) ? img.dataset.animatedSrc : img.dataset.stillSrc;
+    if (img.getAttribute('src') !== source) img.setAttribute('src', source);
+  });
+}
+if ('IntersectionObserver' in window) {
+  const animations = new IntersectionObserver(entries => {
+    entries.forEach(({target,isIntersecting}) => isIntersecting ? visibleAnimations.add(target) : visibleAnimations.delete(target));
+    syncAnimatedImages();
+  });
+  document.querySelectorAll('[data-animated-src]').forEach(img => animations.observe(img));
+}
+syncAnimatedImages();
+document.addEventListener('visibilitychange', syncAnimatedImages);
+reducedMotion.addEventListener('change', syncAnimatedImages);
 
 // Scroll work is coalesced into one frame; transforms never change reading layout.
 let motionFrame = false;

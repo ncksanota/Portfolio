@@ -50,7 +50,7 @@ The build remains dependency-free. Edit source, then run `npm run build`; the se
 
 | Behavior | Implementation | Fallback |
 | --- | --- | --- |
-| Pixel assembly | A finite, replayable sequence of 36 decorative cells | Static portrait under reduced motion or without JS |
+| Pixel assembly | A two-second sequence of 36 decorative cells, repeating every 15 seconds while the portrait is visible | Static portrait under reduced motion or without JS |
 | Hero scroll | Coalesced animation-frame updates for small translations and rotation | Static composition on mobile and reduced motion |
 | Project reveal | IntersectionObserver, opacity and transform | All content visible without JS |
 | Cover continuity | Native cross-document view transitions where supported | Normal navigation |
@@ -58,7 +58,7 @@ The build remains dependency-free. Edit source, then run `npm run build`; the se
 | Demo selection | Reserved media panels, short entry animation | Every demonstration appears in sequence without JS |
 | Header and chapters | Compact fixed header after scrolling; active chapter follows reading position | Native links remain usable |
 
-No scroll interception, automatic video playback, or perpetual decorative loop is required. Offscreen and backgrounded videos pause. The inherited animated GIF is represented by a still with an explicit link to open the original animation. Motion preference changes are handled during an active session. The footer also provides a persistent motion toggle; a system-level reduced-motion preference takes precedence.
+No scroll interception is used. The portrait effect pauses offscreen, in background tabs, or when motion is disabled. Offscreen and backgrounded videos pause. The WAO GIF plays inline at a bounded phone-sized scale. WAO and Nebulink videos autoplay muted when visible on a black stage, with native controls. The Unearth overview also autoplays muted when visible. These previews pause offscreen, in background tabs, or when motion is disabled. Motion preference changes are handled during an active session. The footer also provides a persistent motion toggle; a system-level reduced-motion preference takes precedence.
 
 ## Media and content
 

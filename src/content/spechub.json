@@ -1,22 +1,28 @@
 {
   "title": "Spechub",
   "type": "Product design + prototyping",
-  "eyebrow": "Fohlio v2 · Flagship case study",
-  "headline": "Keeping specification decisions moving.",
-  "hero": ["spechub-approvals-board.jpg"],
-  "heroLabels": ["Spechub approval review board showing item status and the current reviewer"],
+  "eyebrow": "New platform · Design & interactive prototyping",
+  "headline": "A new platform, built around rethought user journeys.",
+  "hero": [
+    "spechub-approvals-board.jpg"
+  ],
+  "heroLabels": [
+    "Spechub approval review board showing item status and the current reviewer"
+  ],
   "socialImage": "spechub-approvals-board.jpg",
   "fullWidthHero": true,
+  "heroPresentation": "desktop",
   "chapterNavigation": true,
   "problemLabel": "The design question",
-  "problem": "How might a specification platform preserve context as work moves from selection to review, refusal, revision, and reuse?",
-  "overview": "Spechub is an interactive product prototype for architecture and design teams. I designed and iterated connected workflows that make the next decision, its owner, and the surrounding product context easier to understand.",
+  "problem": "Spechub is a new platform built from the ground up. The design challenge was to rethink how specification work moves from selection to review, refusal, revision, and reuse, so people can follow a more deliberate, connected journey.",
+  "overview": "Where Fohlio modernized an existing platform, Spechub starts with a new platform and a rethink of the user experience. I designed and iterated connected workflows for architecture and design teams, making the next decision, its owner, and the surrounding product context easier to understand. The project is ongoing; the work shown here documents the design and prototyping process ahead of the planned Phase 1 launch.",
   "role": [
-    "This case study focuses on my recorded design and prototype contributions inside a collaborative product effort. Existing platform, collaboration, and presentation foundations were extended rather than invented from scratch."
+    "This case study focuses on my design and prototype contributions within a collaborative new-platform effort. Building the new platform was a team effort: I extended shared collaboration and presentation foundations, while designing and iterating the connected workflows shown here.",
+    "I prototype primarily with AI, using Codex, Claude Design, GitHub, and Figma. My ongoing work includes refining the design solution, verifying user journeys, maintaining the design system, and creating a new brand identity for Spechub. Phase 1 is planned to go live on September 14, 2026."
   ],
-  "contribution": "Product design and interactive prototyping",
-  "duration": "May–August 2026 (reviewed work)",
-  "status": "Interactive prototype; not production software",
+  "contribution": "Product design, AI-assisted prototyping, and brand design",
+  "duration": "May 2026–present",
+  "status": "Work in progress",
   "collaborators": "Product and engineering teammates",
   "sections": [
     {
@@ -30,10 +36,22 @@
           "type": "journey",
           "label": "The connected loop",
           "steps": [
-            {"title": "Specify", "detail": "Choose products and establish project context."},
-            {"title": "Review", "detail": "Route decisions to the right internal or client reviewer."},
-            {"title": "Recover", "detail": "Turn a refusal into assigned, actionable respec work."},
-            {"title": "Reuse", "detail": "Carry approved knowledge into standards and future projects."}
+            {
+              "title": "Specify",
+              "detail": "Choose products and establish project context."
+            },
+            {
+              "title": "Review",
+              "detail": "Route decisions to the right internal or client reviewer."
+            },
+            {
+              "title": "Recover",
+              "detail": "Turn a refusal into assigned, actionable respec work."
+            },
+            {
+              "title": "Reuse",
+              "detail": "Carry approved knowledge into standards and future projects."
+            }
           ]
         },
         {
@@ -57,7 +75,9 @@
           "alt": "Approval request board with review progress, product cards, and reviewer ownership",
           "caption": "The review surface combines item decisions with progress and current ownership."
         },
-        {"heading": "Designing the exception path"},
+        {
+          "heading": "Designing the exception path"
+        },
         "A refusal needs more than a red badge. I created a return path into Respec Required that retains the source, refusal note, assignee, and deadline. From there, a designer can inspect the affected item, rework it, and mark it ready to re-enter the specification and review process.",
         {
           "type": "comparison",
@@ -100,10 +120,22 @@
           "type": "journey",
           "label": "Spatial specification flow",
           "steps": [
-            {"title": "Review areas", "detail": "Check the spaces suggested from the uploaded drawing."},
-            {"title": "Review products", "detail": "Confirm detected tags before adding records."},
-            {"title": "Place context", "detail": "Inspect products as pins on the Spec Board."},
-            {"title": "Present", "detail": "Carry spatial context into an installation slide."}
+            {
+              "title": "Review areas",
+              "detail": "Check the spaces suggested from the uploaded drawing."
+            },
+            {
+              "title": "Review products",
+              "detail": "Confirm detected tags before adding records."
+            },
+            {
+              "title": "Place context",
+              "detail": "Inspect products as pins on the Spec Board."
+            },
+            {
+              "title": "Present",
+              "detail": "Carry spatial context into an installation slide."
+            }
           ]
         },
         {
@@ -151,7 +183,9 @@
           "alt": "Collection editor showing product types with nested reference products",
           "caption": "Nested references make the relationship between a standard product type and candidate products visible in place."
         },
-        {"heading": "Make change recoverable"},
+        {
+          "heading": "Make change recoverable"
+        },
         "I added manual collection versions with names, timestamps, a current marker, and a restore path. In the prototype this is a practical recovery model, not a claim of enterprise audit guarantees. It lets a user identify a known state before restoring it.",
         {
           "type": "image",
@@ -159,7 +193,9 @@
           "alt": "Collection version history panel with current version and restore controls",
           "caption": "Named snapshots make the current collection state and available restore points explicit."
         },
-        {"heading": "Choose the scope of publishing"},
+        {
+          "heading": "Choose the scope of publishing"
+        },
         "A reusable product can appear in many projects, so editing its core information creates a propagation decision. I worked on a two-step publishing interaction, scope choices, save-as-copy behavior, bulk publishing, comments, and an updates drawer. The prototype distinguishes a local edit from a controlled update to related uses; it does not demonstrate a shipped synchronization service.",
         {
           "type": "image",
@@ -189,10 +225,18 @@
           "type": "relatedWork",
           "slug": "fohlio",
           "eyebrow": "Earlier work · Q3 2024–Q1 2026",
-          "title": "Fohlio platform redesign",
-          "text": "See the earlier platform redesign that preceded this separately audited Spechub prototype work."
+          "title": "Fohlio: modernizing the existing platform",
+          "text": "Explore the earlier modernization of Fohlio’s established workflows and interface patterns, a different design challenge from Spechub’s new-platform rebuild."
         }
       ]
     }
-  ]
+  ],
+  "plannedLaunch": "Phase 1 planned for September 14, 2026",
+  "responsibilities": [
+    "Refine and maintain the design solution",
+    "Verify end-to-end user journeys",
+    "Maintain the design system",
+    "Create Spechub’s new brand identity"
+  ],
+  "tools": "Codex, Claude Design, GitHub, and Figma"
 }
