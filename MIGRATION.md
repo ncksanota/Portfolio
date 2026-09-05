@@ -35,20 +35,18 @@ The original fonts are Anton for display headings, IBM Plex Mono for body text, 
 - Connect the five featured projects in order; replace Unearth's original `/Starjob` next-project target with Design System, and return from Design System to Fohlio.
 - Preserve the source's 2024 copyright date and stated work durations for the review pass.
 
-## Copy to review before the domain cutover
+## Content to review before the domain cutover
 
-1. **Unearth pain points** discuss stock trading, apparently copied from Nebulink. Kept verbatim rather than inventing research findings.
-2. **Design System goals** discuss memories and storytelling, apparently copied from Unearth. Kept for owner review.
-3. **Fohlio ending** mentions “Junior,” which appears tailored to one prospective employer.
-4. **Fohlio metrics** include reported, tested, designed-for, and expected outcomes. Their qualifiers are preserved; this migration does not independently validate those claims.
-5. **About biography** says seven years of design and three years of product design. Confirm these are still current.
-6. **Availability and copyright** may need updating.
-7. **Resume** needs a real PDF or link.
-8. **Copy edits** are still needed in several places (for example “Questionare,” “Retain and Engagement,” and the homepage Nebulink summary). The first pass favors source fidelity.
+1. **Fohlio metrics** include reported, tested, designed-for, and expected outcomes. Their qualifiers are preserved; this migration does not independently validate those claims.
+2. **About biography** says more than seven years of design experience. Confirm that positioning still fits.
+3. **Availability** still says Nicolas is looking for full-time opportunities.
+4. **Resume** needs a real PDF or link before that item can be restored.
+
+The refinement pass corrected the copied Nebulink pain points on Unearth, the copied Unearth goals on Design System, the employer-specific Fohlio ending, and the known spelling and grammar issues in the project summaries.
 
 ## Verification scope
 
-The automated check covers generated routes, local file references, anchor targets, image alt attributes, metadata, single primary headings, maximum file size, and absence of Framer runtime/CDN references in the published HTML and CSS. The source site's appearance was inspected in the browser. The recreated site has not undergone a full browser, accessibility, or device test suite; visual review remains appropriate before replacing the live domain.
+The automated check covers the project/content relationship, generated routes, local file references, anchor targets, image alt attributes, canonical and social metadata, document landmarks, current navigation state, unique IDs, single primary headings, maximum file size, and absence of Framer runtime/CDN references. Every generated route was also tested in a browser at desktop and mobile sizes, including breakpoint edges from 320px to 1440px, lazy-loaded media, the email-copy interaction, horizontal overflow, and console errors. A formal assistive-technology audit is still recommended before replacing the live domain.
 
 ## Hosting state
 
