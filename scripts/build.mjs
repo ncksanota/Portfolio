@@ -1,44 +1,27 @@
-import {readFile, writeFile, mkdir, cp, readdir, rm} from 'node:fs/promises';
+import {readFile,writeFile,mkdir,cp,rm} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const out = path.join(root, 'dist');
-const siteURL = new URL(process.env.SITE_URL || 'https://ncksanota.github.io/Portfolio/');
-if(!siteURL.pathname.endsWith('/')) siteURL.pathname += '/';
-const projects = JSON.parse(await readFile(path.join(root, 'src/projects.json'), 'utf8'));
-const esc = s => String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+import {shell,button} from './lib/ui.mjs';
+import {home,about} from './lib/pages.mjs';
+import {specimen} from './lib/specimen.mjs';
+import {caseStudy} from './lib/case-study.mjs';
+import {stabilizeImages} from './lib/media.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const out=path.join(root,'dist');
+const siteURL=new URL(process.env.SITE_URL||'https://ncksanota.github.io/Portfolio/');
+if(!siteURL.pathname.endsWith('/'))siteURL.pathname+='/';
+const projects=JSON.parse(await readFile(path.join(root,'src/projects.json'),'utf8'));
 await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 await cp(path.join(root,'public'),out,{recursive:true});
-const nav = (base,active='') => `<header class="site-header"><div class="nav-wrap"><a href="${base}" class="brand" aria-label="Nicolas Sanabria — home"><img src="${base}assets/logo.svg" width="80" height="53" alt=""></a><p class="availability">Open and looking for full time opportunities</p><nav aria-label="Main navigation"><a href="${base}#portfolio" ${active==='portfolio'?'aria-current="page"':''}>Portfolio</a><a href="${base}About/" ${active==='about'?'aria-current="page"':''}>About</a></nav></div></header>`;
-const footer = base => `<footer class="site-footer"><div class="footer-grid"><div><p class="eyebrow">Links 🔗</p><a href="https://www.linkedin.com/in/ncksanota/" target="_blank" rel="noopener noreferrer">Linkedin ↗</a><h4 class="resume-label">Resume</h4></div><div><p class="eyebrow">Say hey! 👋</p><div class="email-row"><a href="mailto:nicksanota@gmail.com">nicksanota@gmail.com</a><button type="button" data-copy-email aria-label="Copy email address">Copy</button></div><span class="copy-status" role="status" aria-live="polite"></span></div></div><p class="copyright">Nicolas Sanabria ©️ 2024</p></footer>`;
-function shell(title,description,body,base='./',cls='',pathname='') {
- const pageURL = pathname === null ? null : new URL(pathname, siteURL).href;
- const socialImage = new URL('assets/Se27uSPfxrflC01YaaGHXVaMms.png',siteURL).href;
- const canonical = pageURL ? `<link rel="canonical" href="${esc(pageURL)}"><meta property="og:url" content="${esc(pageURL)}">` : '';
- return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#edff50"><title>${esc(title)} — Nicolas Sanabria</title><meta name="description" content="${esc(description)}">${canonical}<meta property="og:type" content="website"><meta property="og:site_name" content="Nicolas Sanabria"><meta property="og:title" content="${esc(title)} — Nicolas Sanabria"><meta property="og:description" content="${esc(description)}"><meta property="og:image" content="${esc(socialImage)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(title)} — Nicolas Sanabria"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${esc(socialImage)}"><link rel="icon" href="${base}assets/FcKGaeV308Gr1frry5QgNy0JUe8.svg" type="image/svg+xml"><link rel="stylesheet" href="${base}fonts.css"><link rel="stylesheet" href="${base}style.css"><script src="${base}site.js" defer></script></head><body class="${esc(cls)}"><a class="skip-link" href="#main">Skip to content</a>${body}</body></html>`;
+async function page(file,options){await mkdir(path.dirname(path.join(out,file)),{recursive:true});await writeFile(path.join(out,file),await stabilizeImages(shell({...options,siteURL}),root));}
+await page('index.html',{title:'Product Designer',description:'Nicolas Sanabria is a product designer in New York, turning complex workflows into clear, useful experiences. Explore selected work.',body:home(projects)});
+await page('About/index.html',{title:'About',description:'Meet Nicolas Sanabria, a Colombian product designer based in New York.',body:about(),base:'../',pathname:'About/'});
+for(const [i,project] of projects.entries()){
+ const content=JSON.parse(await readFile(path.join(root,'src/content',project.slug+'.json'),'utf8'));
+ await page(project.slug+'/index.html',{title:content.title,description:project.description,body:caseStudy(project,content,projects[(i+1)%projects.length]),base:'../',pathname:project.slug+'/'});
 }
-const cards=projects.filter(p=>p.featured!==false).map((p,i)=>`<a class="project-card" href="./${esc(p.slug)}/"><img src="./assets/${esc(p.cover)}" alt="" loading="lazy" decoding="async" width="1200" height="900"><div class="card-shade"></div><div class="card-text"><div class="card-heading"><h3><span>${String(i+1).padStart(2,'0')}</span> ${esc(p.title)}</h3><span class="card-arrow" aria-hidden="true">↗</span></div><p class="project-type">${esc(p.type)}</p><p>${esc(p.description)}</p></div></a>`).join('');
-const banner = `<div class="ticker" aria-label="Nicolas Sanabria. Product designer. Design for people."><div class="ticker-track" aria-hidden="true">${Array(2).fill('<span>NICOLAS SANABRIA</span><span class="ticker-star">✳</span><span>PRODUCT DESIGNER</span><span class="ticker-star">✳</span><span>DESIGN FOR PEOPLE</span><span class="ticker-star">✳</span>').join('')}</div></div>`;
-await writeFile(path.join(out,'index.html'),shell('Product Designer','Nicolas Sanabria is a product designer based in New York. Explore selected product design, UX research, and design system projects.',`${nav('./','portfolio')}<main id="main"><section class="hero"><div class="hero-panel"><img class="hero-portrait" src="./assets/WKcDRgRgaZFTbwOwsEZULjMzfJk.png" alt="Nicolas Sanabria in a sunlit garden" width="2364" height="2280" decoding="async" fetchpriority="high"><h1>PEOPLE-POWERED PIXELS<span aria-hidden="true">PEOPLE-POWERED PIXELS</span></h1><h2>Designing backward, thinking forwards</h2><p class="hero-intro">Hey! 👋🏼 I’m Nicolas a Product Designer <br>based in New York</p></div></section>${banner}<section id="portfolio" class="portfolio"><div class="portfolio-inner"><h2>PORTFOLIO.</h2><div class="project-list">${cards}</div></div></section></main>${footer('./')}`,'./','home',''));
-await mkdir(path.join(out,'About'),{recursive:true});
-await writeFile(path.join(out,'About/index.html'),shell('About','Meet Nicolas Sanabria, a product designer based in New York City.',`${nav('../','about')}<main id="main" class="about"><section class="about-intro"><div><h1>Hey! My name is Nicolas Sanabria, I’m a product designer based in NYC.</h1><div class="about-copy"><p>I was born in Colombia, I've been working as a designer in some form or another for more than 7 years, with a focus on UX/UI and Product design for the past 3 years. I'm a creative thinker who enjoys creating strong brands through well-thought out products, leading creative teams, and coming up with user-centric solutions.</p><p>I believe great product design is a compromise between hitting business goals and meeting high user expectations.</p></div><a class="text-link" href="https://www.linkedin.com/in/ncksanota/" target="_blank" rel="noopener noreferrer">Linkedin ↗</a></div><img src="../assets/bi1YwoFLVknxKipJZLMWszlXVI.png" alt="Nicolas Sanabria on a New York rooftop" width="788" height="808" decoding="async"></section><section class="clients"><h2>Selected clients</h2><dl>${[['Daily Hugs','2024'],['Fintron','2023'],['Emdash','2023'],['Inbound','2023'],['Cathpoint','2022']].map(([n,y])=>`<div><dt>${esc(n)}</dt><dd>${esc(y)}</dd></div>`).join('')}</dl></section><section class="get-in-touch"><h2>Let's get to know each other.<br><a href="mailto:nicksanota@gmail.com">Get in touch. ↗</a></h2></section></main>${footer('../')}`,'../','about-page','About/'));
-const files=await readdir(path.join(root,'src/content'));
-for(const project of projects){
- const file=project.slug+'.json';
- if(!files.includes(file)) continue;
- const p=JSON.parse(await readFile(path.join(root,'src/content',file),'utf8'));
- p.mediaLabels ||= {};
- for(const s of p.sections) for(const [i,m] of (s.media||[]).entries()) p.mediaLabels[m] ||= `${s.title}${s.media.length>1?` (image ${i+1})`:''}`;
- const renderMedia=(m)=>m.endsWith('.mp4')?`<figure class="case-media video-media"><video controls playsinline preload="metadata" aria-label="${esc(p.title)} interface demonstration"><source src="../assets/${esc(m)}" type="video/mp4">Your browser does not support video. <a href="../assets/${esc(m)}">Download demonstration</a></video></figure>`:`<figure class="case-media"><a href="../assets/${esc(m)}" target="_blank" rel="noopener noreferrer" aria-label="Open ${esc(p.mediaLabels?.[m] || `${p.title} project image`)} at full size"><img src="../assets/${esc(m)}" alt="${esc(p.title)} — ${esc(p.mediaLabels?.[m] || 'project design and research artifact')}" loading="lazy" decoding="async"></a></figure>`;
- const sections=p.sections.map((s,i)=>`<section class="case-section" id="section-${i}"><div class="section-label"><h2>${esc(s.title)}</h2>${s.date?`<p class="eyebrow">${esc(s.date)}</p>`:''}</div><div class="section-body">${(s.blocks||[]).map(b=>typeof b==='string'?`<p>${esc(b)}</p>`:b.heading?`<h3>${esc(b.heading)}</h3>`:b.list?`<ul>${b.list.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`:'').join('')}</div>${(s.media||[]).map(renderMedia).join('')}</section>`).join('');
- const next=projects[(projects.indexOf(project)+1)%projects.length];
- const heroMedia = p.hero.map((m,i)=>`<img src="../assets/${esc(m)}" alt="${esc(p.title)} product mockup${p.hero.length>1?` ${i+1}`:''}" decoding="async" fetchpriority="high">`).join('');
- const page=`${nav('../','portfolio')}<main id="main"><section class="case-hero"><div class="case-title"><h1>${esc(p.title)}</h1><p>${esc(p.type)}</p></div><div class="hero-devices ${p.hero.length>1?'multiple':''}">${heroMedia}</div><div class="case-problem">${p.problemLabel?`<strong>${esc(p.problemLabel)}</strong>`:''}<p>${esc(p.problem)}</p></div></section><div class="case-content"><section class="case-overview"><div><h2>${esc(p.overview)}</h2>${(p.role||[]).map(t=>`<p>${esc(t)}</p>`).join('')}</div><dl><dt>Contribution</dt><dd>${esc(p.contribution)}</dd><dt>Duration</dt><dd>${esc(p.duration)}</dd></dl></section>${(p.overviewMedia||[]).map(renderMedia).join('')}${sections}<a class="next-project" href="../${esc(next.slug)}/"><span>Next project</span><strong>${esc(next.title)}</strong><span aria-hidden="true">↗</span></a></div></main>${footer('../')}`;
- await mkdir(path.join(out,project.slug),{recursive:true});
- await writeFile(path.join(out,project.slug,'index.html'),shell(p.title,project.description,page,'../','case-page',`${project.slug}/`));
-}
+await page('404.html',{title:'Page not found',description:'This page could not be found.',pathname:null,base:siteURL.href,body:`<main id="main" class="not-found wrap"><p class="eyebrow">404 / A small detour</p><h1>LET’S GET<br>YOU BACK.</h1><p>That page is no longer here. There’s plenty of work to explore.</p>${button('Back to the portfolio',siteURL.href)}</main>`});
+await page('system/index.html',{title:'Design language',description:'Typography, tokens, and components for the Nicolas Sanabria portfolio.',body:specimen(),base:'../',pathname:'system/'});
 await writeFile(path.join(out,'.nojekyll'),'');
-await writeFile(path.join(out,'404.html'),shell('Page not found','This page could not be found.',`<main class="not-found" id="main"><h1>Page not found.</h1><p>Let’s get you back to the portfolio.</p><a href="${esc(siteURL.href)}">Back to home ↗</a></main>`,siteURL.href,'',null));
-console.log(`Built homepage, About, and ${files.filter(f=>f.endsWith('.json')).length} case studies in dist/`);
+console.log(`Built Home, About, ${projects.length} case studies, design specimen, and 404 in dist/`);

@@ -17,24 +17,32 @@ npm run build
 npm run check
 ```
 
+## Portfolio v2
+
+The design system, component map, motion behavior, and editing guidance are documented in [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md). The implementation follows [DESIGN-V2-PLAN.md](DESIGN-V2-PLAN.md).
+
+Open `/system/` in the local preview to inspect the typography, palette, spacing, and controls together. This specimen is not included in portfolio navigation.
+
 ## Edit the portfolio
 
-- `src/projects.json`: project order, homepage summaries, covers, and routes.
-- `src/content/*.json`: full case-study copy, section order, and media filenames.
-- `scripts/build.mjs`: shared header/footer, homepage, About page, and case-study templates.
-- `public/style.css`: colors, typography, spacing, responsive layouts, motion.
-- `public/assets`: locally stored images, fonts, logo, and videos.
-- `public/site.js`: email-copy interaction. All pages and navigation work without JavaScript.
-- `asset-sources.json`: downloaded asset provenance.
-- `MIGRATION.md`: design audit, deliberate differences, and content review items.
+- `src/projects.json`: project identity, source covers, and preserved routes.
+- `src/content/*.json`: case-study copy and media.
+- `scripts/lib/pages.mjs`: editorial summaries, selected-work order, Home and About layouts.
+- `scripts/lib/ui.mjs`: shared shell, navigation, footer, and button primitive.
+- `scripts/lib/case-study.mjs`: chapters, case-study components, and demonstration galleries.
+- `public/styles/tokens.css`: palette, semantic roles, type scales, spacing, motion.
+- `public/styles/primitives.css`: shared typography, layout and interaction primitives.
+- `public/style.css`: components and responsive page layouts.
+- `public/site.js`: progressive motion, demo tabs, chapter state, media behavior, email copy.
+- `public/assets`: original media; `optimized/` contains derived portrait variants, video posters, and a GIF still.
 
-The build writes only to `dist/`. Edit source files, not generated HTML.
+The build writes only to `dist/`. Edit source files, not generated HTML. All content and navigation remain available without JavaScript; videos become a linear sequence and motion becomes static.
 
 ## Publish to GitHub Pages
 
 The included workflow builds and checks the site and publishes `dist/` when `main` changes. In the repository, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Use a public repository for free Pages hosting on a GitHub Free account.
 
-When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. Starjob remains outside the homepage’s five featured cards but is preserved in the original next-project sequence.
+When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. The homepage features Fohlio, WAO Shop, and Nebulink; Unearth, Starjob, and Design System remain directly accessible in the More to explore index. The original next-project sequence is preserved.
 
 If the repository has not yet been created, sign in to the GitHub CLI with `gh auth login`, then, from this directory:
 

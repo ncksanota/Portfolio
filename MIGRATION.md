@@ -52,3 +52,7 @@ The automated check covers the project/content relationship, generated routes, l
 ## Hosting state
 
 This is a prepared repository, not evidence of a GitHub deployment. GitHub authentication, repository creation, workflow success, and the final live URL must be verified separately. DNS and Framer billing remain unchanged.
+
+## V2 implementation
+
+The migration audit above describes the first-pass recreation. The subsequent v2 implementation uses the same original assets and route names with new editorial layouts, semantic tokens, shared partials, comfortable case-study typography, progressive motion, chapter navigation, and demonstration tabs. See `DESIGN-SYSTEM.md` for the current implementation and verification scope. The inert Resume label and stale availability claim are omitted pending current information; the source copyright year now follows the build year. No DNS or hosting configuration was changed by this redesign.

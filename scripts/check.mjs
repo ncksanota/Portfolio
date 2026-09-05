@@ -40,12 +40,21 @@ for (const project of projects) {
 
 const all = await walk(root);
 const htmlFiles = all.filter((file) => file.endsWith('.html'));
-const expected = ['index.html', 'About/index.html', ...slugs.map((slug) => `${slug}/index.html`), '404.html'];
+const expected = ['index.html', 'About/index.html', ...slugs.map((slug) => `${slug}/index.html`), '404.html', 'system/index.html'];
 for (const route of expected) {
   if (!all.includes(path.join(root, route))) errors.push(`Missing route: ${route}`);
 }
 
 let references = 0;
+// Preserve every case-study artifact through editorial restructuring.
+for (const project of projects) {
+ const source=JSON.parse(await readFile(path.join(projectRoot,'src/content',project.slug+'.json'),'utf8'));
+ const html=await readFile(path.join(root,project.slug,'index.html'),'utf8');
+ const media=[...source.hero,...(source.overviewMedia||[]),...source.sections.flatMap(s=>s.media||[])];
+ for(const file of media) if(!html.includes(file))errors.push(`${project.slug}: missing source media ${file}`);
+ for(const tab of html.matchAll(/role="tab"[^>]*aria-controls="([^"]+)"/g)) if(!html.includes(`id="${tab[1]}"`))errors.push(`${project.slug}: missing demo panel ${tab[1]}`);
+}
+
 for (const file of htmlFiles) {
   const content = await readFile(file, 'utf8');
   const relative = path.relative(root, file);
@@ -72,9 +81,10 @@ for (const file of htmlFiles) {
 
   for (const img of content.matchAll(/<img\b[^>]*>/g)) {
     if (!/\balt="[^"]*"/.test(img[0])) errors.push(`${relative}: image has no alt attribute`);
+    if (!/\bwidth="[0-9]+"/.test(img[0]) || !/\bheight="[0-9]+"/.test(img[0])) errors.push(`${relative}: image needs intrinsic dimensions`);
   }
 
-  for (const match of content.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
+  for (const match of content.matchAll(/\b(?:href|src|poster)="([^"]+)"/g)) {
     let url = match[1];
     let siteAbsolute = false;
     if (url.startsWith(siteURL.href)) {
