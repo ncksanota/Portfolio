@@ -54,6 +54,7 @@ h1,h2{font-family:var(--heading)}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .eyebrow{font-size:14px;margin-bottom:16px}
 .footer-grid a:hover{text-decoration:underline;text-underline-offset:5px}
+.resume-label{margin:24px 0 0;font:400 16px/1.5 var(--body)}
 .email-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
 .email-row button{min-height:40px;background:transparent;color:inherit;border:1px solid currentColor;border-radius:4px;padding:7px 14px;cursor:pointer}
 .email-row button:hover{background:#000;color:var(--acid)}

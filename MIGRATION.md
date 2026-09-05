@@ -18,6 +18,7 @@ The original fonts are Anton for display headings, IBM Plex Mono for body text, 
 | Nebulink | Overview, research, personas/journey, wireframes, usability testing, three video demos, accessibility and next steps |
 | WAO Shop | Overview, seller research, pain points, insights, usability testing, new engagement features and demos |
 | Unearth | Overview, user research, design process, testing, final interfaces, accessibility and next steps |
+| Starjob | Career mentorship and first-job platform, research, competitive audit, design process, usability testing, final interfaces, accessibility and next steps |
 | Design System | Bank component system, goals, design process, visual artifacts, typography inventory, accessibility and next steps |
 
 ## First-pass implementation decisions
@@ -31,8 +32,8 @@ The original fonts are Anton for display headings, IBM Plex Mono for body text, 
 - Keep a consistent two-link navigation on all pages. The original case-study navigation differs across pages.
 - Reuse the source logo artwork, omitting redundant export mask/stroke data. The original smiley artwork in the ticker is represented by a typographic asterisk.
 - List the design-system typeface names as content rather than redistributing the commercial Texta font or recreating its live font specimens.
-- Omit the inactive Resume label; no downloadable resume or destination link was discoverable. Add the real PDF when available.
-- Connect the five featured projects in order; replace Unearth's original `/Starjob` next-project target with Design System, and return from Design System to Fohlio.
+- Preserve the source's inactive Resume label; no downloadable resume or destination link was discoverable. Add the real PDF when available.
+- Preserve the five featured homepage projects and the original next-project sequence, including the unfeatured Starjob case study between Unearth and Design System.
 - Preserve the source's 2024 copyright date and stated work durations for the review pass.
 
 ## Content to review before the domain cutover
@@ -40,9 +41,9 @@ The original fonts are Anton for display headings, IBM Plex Mono for body text, 
 1. **Fohlio metrics** include reported, tested, designed-for, and expected outcomes. Their qualifiers are preserved; this migration does not independently validate those claims.
 2. **About biography** says more than seven years of design experience. Confirm that positioning still fits.
 3. **Availability** still says Nicolas is looking for full-time opportunities.
-4. **Resume** needs a real PDF or link before that item can be restored.
+4. **Resume** needs a real PDF or link before the preserved label can become functional.
 
-The refinement pass corrected the copied Nebulink pain points on Unearth, the copied Unearth goals on Design System, the employer-specific Fohlio ending, and the known spelling and grammar issues in the project summaries.
+Source copy is preserved verbatim where practical. Apparent cross-project copy issues remain owner-authored content and are not silently rewritten during migration. Two Starjob screenshots that were embedded in Fohlio's “Search by Image” gallery were removed from the migrated Fohlio page and retained only on Starjob.
 
 ## Verification scope
 
