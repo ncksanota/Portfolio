@@ -1,242 +1,114 @@
 {
-  "title": "Spechub",
-  "type": "Product design + prototyping",
-  "eyebrow": "New platform · Design & interactive prototyping",
-  "headline": "A new platform, built around rethought user journeys.",
+  "title": "SpeCurate",
+  "type": "Product design + design system",
+  "eyebrow": "Product design · AI-assisted prototyping · Design system",
+  "headline": "Keep every specification moving.",
   "hero": [
-    "spechub-approvals-board.jpg"
+    "spechub-current-specifications.jpg"
   ],
   "heroLabels": [
-    "Spechub approval review board showing item status and the current reviewer"
+    "SpeCurate specification workspace with area navigation, product alternatives, and workflow status"
   ],
-  "socialImage": "spechub-approvals-board.jpg",
+  "socialImage": "spechub-current-specifications.jpg",
   "fullWidthHero": true,
   "heroPresentation": "desktop",
   "chapterNavigation": true,
   "problemLabel": "The design question",
-  "problem": "Spechub is a new platform built from the ground up. The design challenge was to rethink how specification work moves from selection to review, refusal, revision, and reuse, so people can follow a more deliberate, connected journey.",
-  "overview": "Where Fohlio modernized an existing platform, Spechub starts with a new platform and a rethink of the user experience. I designed and iterated connected workflows for architecture and design teams, making the next decision, its owner, and the surrounding product context easier to understand. The project is ongoing; the work shown here documents the design and prototyping process ahead of the planned Phase 1 launch.",
+  "problem": "Specification handoffs can lose the reason behind a choice—and leave teams unsure who acts next.",
+  "overview": "SpeCurate, formerly Spechub, is a specification platform for architecture and design teams. I connect product selection, review, and revision so a changed decision has a clear next step.",
   "role": [
-    "This case study focuses on my design and prototype contributions within a collaborative new-platform effort. Building the new platform was a team effort: I extended shared collaboration and presentation foundations, while designing and iterating the connected workflows shown here.",
-    "I prototype primarily with AI, using Codex, Claude Design, GitHub, and Figma. My ongoing work includes refining the design solution, verifying user journeys, maintaining the design system, and creating a new brand identity for Spechub. Phase 1 is planned to go live on September 14, 2026."
+    "I design workflows and build AI-assisted prototypes with product and engineering teammates, building on their collaboration and presentation foundations. My scope also includes the design system and evolving brand identity.",
+    "These are selected decisions from an ongoing prototype, captured with demo data in October 2026. Production adoption and business outcomes have not yet been measured."
   ],
-  "contribution": "Product design, AI-assisted prototyping, and brand design",
+  "contribution": "Product design, AI-assisted prototyping, and design system",
   "duration": "May 2026–present",
-  "status": "Work in progress",
+  "status": "Prototype · In progress",
   "collaborators": "Product and engineering teammates",
   "sections": [
     {
-      "id": "overview",
-      "chapterLabel": "Overview",
-      "title": "One connected system",
-      "blocks": [
-        "A specification is not a static list. It moves between designers, internal reviewers, clients, libraries, drawings, and presentations. Each handoff can lose the reasoning behind a choice or leave someone unsure of what happens next.",
-        "I treated that continuity as the central product problem. Across the prototype, I worked on decision states, recovery paths, spatial review, reusable collections, and controlled change. The goal was not to add disconnected features; it was to make a decision legible before, during, and after it happened.",
-        {
-          "type": "journey",
-          "label": "The connected loop",
-          "steps": [
-            {
-              "title": "Specify",
-              "detail": "Choose products and establish project context."
-            },
-            {
-              "title": "Review",
-              "detail": "Route decisions to the right internal or client reviewer."
-            },
-            {
-              "title": "Recover",
-              "detail": "Turn a refusal into assigned, actionable respec work."
-            },
-            {
-              "title": "Reuse",
-              "detail": "Carry approved knowledge into standards and future projects."
-            }
-          ]
-        },
-        {
-          "type": "image",
-          "src": "spechub-client-proposals.jpg",
-          "alt": "Spechub client proposals dashboard showing presentations, response status, and item outcomes",
-          "caption": "Client proposals sit beside specification work so item responses can return to the same working context. Sharing, signing, and access shown here are prototype behaviors."
-        }
-      ]
-    },
-    {
       "id": "decision-loop",
-      "chapterLabel": "01 · Decisions",
-      "title": "A refusal should create a next action",
+      "chapterLabel": "Handoffs",
+      "title": "Give a refusal somewhere to go",
       "blocks": [
-        "Approval work is easy to model as a status change. The harder problem is ownership: who can act now, what evidence they need, and where a rejected item goes. I extended an existing collaboration foundation with sequential approver steps, sign-off progress, reusable approval presets, ownership handoff, and action gating. Review cards surfaced both the decision and whose turn it was.",
-        "Client proposal work connected that internal process to item-by-item client responses. I integrated the proposal dashboard with specifications, added response summaries and requester views, and refined the composer and version activity. A teammate had introduced the initial presentation, signing, version-history, and magic-link foundation; my work focused on the integrated review journey and its later iterations.",
-        {
-          "type": "image",
-          "src": "spechub-approvals-board.jpg",
-          "alt": "Approval request board with review progress, product cards, and reviewer ownership",
-          "caption": "The review surface combines item decisions with progress and current ownership."
-        },
-        {
-          "heading": "Designing the exception path"
-        },
-        "A refusal needs more than a red badge. I created a return path into Respec Required that retains the source, refusal note, assignee, and deadline. From there, a designer can inspect the affected item, rework it, and mark it ready to re-enter the specification and review process.",
+        "A refusal needs a reason, an owner, and a path back to review. I created Respec Required to keep those details with the item instead of leaving the team to reconstruct the handoff.",
+        "The first version asked reviewers to choose between swapping, revising, keeping, or dropping an item. I replaced those four choices with one confirmation and moved the resolution into the designer’s workspace. This separates the review decision from the work needed to resolve it.",
         {
           "type": "comparison",
           "before": {
             "src": "spechub-respec-four-option-before.jpg",
             "alt": "Earlier respec modal with four choices for swap, revise, keep, or drop",
-            "label": "Earlier iteration · PR 153",
-            "caption": "The first path asked reviewers to classify each response before sending it to respec."
+            "label": "Earlier exploration",
+            "caption": "Four choices asked the reviewer to classify the resolution."
           },
           "after": {
             "src": "spechub-respec-confirmation-after.jpg",
             "alt": "Later respec confirmation modal with a single send action",
-            "label": "Later iteration · PR 168",
-            "caption": "The later path reduces the handoff to a confirmation and moves detailed resolution into the respec workspace."
+            "label": "Simplified handoff",
+            "caption": "One action passes the item into a dedicated revision workflow."
           }
         },
-        "The repository evidence establishes that the interaction was simplified, but it does not establish a research finding behind that change. I present this as an iteration in interaction responsibility: the handoff records the problem; the work area supports the resolution.",
+        "The current item sheet offers Replace and Mark ready. Marking an item ready starts a fresh approval request with the previous reviewers, carrying ownership back into the review loop.",
         {
           "type": "image",
-          "src": "spechub-respec-dashboard.jpg",
-          "alt": "Respec Required dashboard combining refused approval and client proposal items",
-          "caption": "A dedicated queue brings together refused items from internal approvals and client proposals."
-        },
-        {
-          "type": "image",
-          "src": "spechub-respec-item-detail.jpg",
-          "alt": "Respec item detail showing refusal context, assignment, deadline, and mark ready action",
-          "caption": "The item view keeps refusal context close to assignment and the action that returns work to the flow."
+          "src": "spechub-current-respec-detail.jpg",
+          "alt": "SpeCurate item side sheet opened from Respec Required, with Replace and Mark ready actions",
+          "caption": "Current prototype: revise the specification while keeping the respec queue in context."
         }
       ]
     },
     {
-      "id": "spatial-specification",
-      "chapterLabel": "02 · Spatial",
-      "title": "From a floor plan to a reviewable specification",
+      "id": "sourcing-and-recovery",
+      "chapterLabel": "Trade-offs",
+      "title": "Make the vendor decision comparable",
       "blocks": [
-        "Product data becomes more useful when a team can see where it belongs. I prototyped a spatial workflow that starts with a floor plan, inserts a human review step between extraction and specification, and connects product records to locations on a Spec Board.",
-        "The prototype simulates extraction; it does not perform production document analysis. That boundary shaped the flow. Detected areas and products are suggestions that a designer reviews, edits, and confirms before they become structured project data.",
-        {
-          "type": "journey",
-          "label": "Spatial specification flow",
-          "steps": [
-            {
-              "title": "Review areas",
-              "detail": "Check the spaces suggested from the uploaded drawing."
-            },
-            {
-              "title": "Review products",
-              "detail": "Confirm detected tags before adding records."
-            },
-            {
-              "title": "Place context",
-              "detail": "Inspect products as pins on the Spec Board."
-            },
-            {
-              "title": "Present",
-              "detail": "Carry spatial context into an installation slide."
-            }
-          ]
-        },
+        "Price alone cannot settle a specification. Lead time, availability, documents, and proposed alternatives can change which quote makes sense.",
+        "I brought vendor responses into one item-by-item comparison, with the request details alongside it. Teams can compare the same criteria and choose a vendor for each item before accepting a quote.",
         {
           "type": "image",
-          "src": "spechub-extraction-review.jpg",
-          "alt": "Floor-plan review with a list of suggested spaces beside the drawing",
-          "caption": "Suggested spaces remain reviewable before they become project structure. Extraction is simulated in this prototype."
+          "src": "spechub-current-vendor-comparison.jpg",
+          "alt": "Vendor comparison with three supplier columns, pricing, lead times, availability, and alternatives",
+          "caption": "Shared criteria expose the trade-offs. Values shown are demo data."
         },
-        {
-          "type": "image",
-          "src": "spechub-matched-products-review.jpg",
-          "alt": "Floor plan with matched product tags and a review list of detected items",
-          "caption": "A second review state lets the designer verify product matches against the drawing."
-        },
-        {
-          "type": "image",
-          "src": "spechub-populated-spec-board.jpg",
-          "alt": "Populated Spec Board with product pins placed over an architectural floor plan",
-          "caption": "The populated board restores location as a first-class part of the specification."
-        },
-        {
-          "type": "image",
-          "src": "spechub-spec-board-pin-detail.jpg",
-          "alt": "Selected Spec Board pin with product details and actions",
-          "caption": "Selecting a pin connects a location back to the underlying product record and available actions."
-        },
-        {
-          "type": "image",
-          "src": "spechub-installation-presentation.jpg",
-          "alt": "Furniture installation presentation slide combining a floor plan with product imagery",
-          "caption": "The same spatial context can be composed into an installation-oriented presentation slide."
-        }
-      ]
-    },
-    {
-      "id": "reusable-standards",
-      "chapterLabel": "03 · Standards",
-      "title": "Reuse without losing control",
-      "blocks": [
-        "Standards libraries create leverage only when teams can understand their structure and control how changes travel. I redesigned collection and catalog interactions around product types with nested reference items, scoped pickers, category-first navigation, and clearer reference counts.",
-        "That hierarchy separates a reusable definition from the real products that can satisfy it. Instead of adding unrelated flat rows, a team can keep alternates and reference choices attached to the product type they explain.",
-        {
-          "type": "image",
-          "src": "spechub-collection-nested-references.jpg",
-          "alt": "Collection editor showing product types with nested reference products",
-          "caption": "Nested references make the relationship between a standard product type and candidate products visible in place."
-        },
-        {
-          "heading": "Make change recoverable"
-        },
-        "I added manual collection versions with names, timestamps, a current marker, and a restore path. In the prototype this is a practical recovery model, not a claim of enterprise audit guarantees. It lets a user identify a known state before restoring it.",
-        {
-          "type": "image",
-          "src": "spechub-version-restore.jpg",
-          "alt": "Collection version history panel with current version and restore controls",
-          "caption": "Named snapshots make the current collection state and available restore points explicit."
-        },
-        {
-          "heading": "Choose the scope of publishing"
-        },
-        "A reusable product can appear in many projects, so editing its core information creates a propagation decision. I worked on a two-step publishing interaction, scope choices, save-as-copy behavior, bulk publishing, comments, and an updates drawer. The prototype distinguishes a local edit from a controlled update to related uses; it does not demonstrate a shipped synchronization service.",
-        {
-          "type": "image",
-          "src": "spechub-controlled-publishing.jpg",
-          "alt": "Product updates drawer with change details, publish controls, and before and after values",
-          "caption": "The update surface shows what changed and asks the user to choose when that change should travel."
-        }
+        "The matrix keeps more detail visible than a simple list. The design prioritizes comparing a small set of supplier responses in context; it still needs evaluation with working teams."
       ]
     },
     {
       "id": "shared-patterns",
-      "chapterLabel": "Patterns",
-      "title": "Patterns that carry the system",
+      "chapterLabel": "Design system",
+      "title": "Make the same rules travel across the product",
       "blocks": [
-        "Across these journeys, the interface repeats a small set of ideas: side sheets keep context visible, status language describes both state and responsibility, and confirmation moments appear where an action changes another person’s work. Saved-view behavior in this prototype uses local browser storage, so I do not present it as cross-device persistence.",
-        "The visual consistency matters, but the more important system is behavioral. The same concepts—source, owner, state, scope, and next action—appear in approvals, respec, spatial review, collections, versions, and publishing. Reusing those concepts helps a dense platform feel learnable without pretending every workflow is identical."
+        "As the workflows grew, I developed shared foundations for tables, side sheets, forms, and feedback. A restrained purple accent, Geist typography, and semantic color roles establish the visual direction.",
+        "The system also defines behavior: where toolbar actions belong, when forms validate, and how a failed save preserves someone’s input. Documented rules, reusable components, and Storybook examples support adoption with engineering.",
+        {
+          "type": "image",
+          "src": "spechub-current-archive-impact.jpg",
+          "alt": "Prototype archive dialog naming the purchase order that prevents removal of an item",
+          "caption": "A related product decision: explain what an action affects. This archive check names the purchase order blocking removal."
+        },
+        "The prototype has begun adopting the palette and app framing; wider component adoption is ongoing. I am also developing the SpeCurate identity and new logo."
       ]
     },
     {
       "id": "reflection",
-      "chapterLabel": "Reflection",
-      "title": "What the prototype clarified",
+      "chapterLabel": "How I work",
+      "title": "Use AI to make the decisions tangible",
       "blocks": [
-        "This work reinforced that complex tools become clearer when the exception path receives as much attention as the happy path. A refusal, uncertain extraction, old version, or unpublished change is not edge-case debris; it is where users need the strongest explanation of what happened and what they can do next.",
-        "The reviewed record supports the interactions and iterations shown here. It does not prove production adoption, time savings, research leadership, or business outcomes, so those claims are intentionally absent. The next useful step would be to evaluate the connected journeys with working teams and measure whether ownership and handoffs are understood without facilitation.",
+        "I use Codex and Claude Design to build and revise working interactions. My contribution is the product logic and design judgment: deciding what belongs in a review, what moves into revision, and which patterns should be shared.",
+        "The respec iteration is one example: AI-assisted implementation made the interaction concrete, while the decision to simplify the handoff remained mine. The prototype gives the team behavior to discuss alongside the screens.",
+        {
+          "heading": "What this work establishes"
+        },
+        "The work connects review and revision in an interactive prototype and establishes reusable interface rules. The next step is to test whether teams understand who acts next and can complete a revision without guidance. That is the evidence I would need before claiming a usability improvement.",
         {
           "type": "relatedWork",
           "slug": "fohlio",
           "eyebrow": "Earlier work · Q3 2024–Q1 2026",
-          "title": "Fohlio: modernizing the existing platform",
-          "text": "Explore the earlier modernization of Fohlio’s established workflows and interface patterns, a different design challenge from Spechub’s new-platform rebuild."
+          "title": "Fohlio: modernizing an established platform",
+          "text": "Improving workflows while preserving familiar interactions."
         }
       ]
     }
   ],
-  "plannedLaunch": "Phase 1 planned for September 14, 2026",
-  "responsibilities": [
-    "Refine and maintain the design solution",
-    "Verify end-to-end user journeys",
-    "Maintain the design system",
-    "Create Spechub’s new brand identity"
-  ],
-  "tools": "Codex, Claude Design, GitHub, and Figma"
+  "tools": "Codex, Claude Design, GitHub, and Figma",
+  "displayTitle": "SpeCurate"
 }

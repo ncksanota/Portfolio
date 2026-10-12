@@ -1,19 +1,204 @@
 {
-  "title":"Fohlio","type":"Existing platform modernization","eyebrow":"Existing platform · Modernization · Q3 2024–Q1 2026","hero":["nNza2AXvSLO5QJNx2Ng3iQ6rBM.png"],
-  "problem":"Fohlio was a modernization of an existing platform. My work focused on improving established workflows, introducing AI-assisted features, and unifying interface patterns while preserving familiar ways of working for architecture and construction teams.",
-  "overview":"Fohlio is an established project management platform for architecture and construction professionals. This case study covers its modernization from Q3 2024 through Q1 2026: making specification, sourcing, and materials management clearer within an existing product. Spechub, the later new-platform rebuild, is documented separately.",
-  "contribution":"Product designer","duration":"Q3 2024 – Q1 2026","overviewMedia":["UIhOJi5OJAUXygp42RvsS9WvFw.png"],
-  "sections":[
-    {"title":"Challenge","blocks":["The platform had grown organically over years, resulting in inconsistent UI patterns, fragmented workflows, and a steep learning curve for new users. Teams were spending too much time navigating the system instead of focusing on their projects.","The redesign needed to modernize the interface, introduce AI-powered features, and establish a scalable design system—all while maintaining backward compatibility with existing projects.","Before: Fragmented interface with inconsistent patterns"],"media":["KO8qW84U8Uze9zCAr2J3UQqxqH8.png"]},
-    {"title":"My Role & Process","blocks":[{"list":["1 — Research","2 — Hypothesis","3 — Prototype","4 — Validate","5 — Systemize"]},"My focus was turning fragmented experiences into a scalable, repeatable design system."]},
-    {"title":"Project Analytics","date":"Released Q3 2025","blocks":[{"heading":"Problem"},"Teams lacked visibility into project health, budget tracking, and resource allocation across multiple concurrent projects.",{"heading":"My Approach"},"Designed a comprehensive analytics dashboard that surfaces key metrics at a glance while allowing drill-down into specific project details. Prioritized the most critical KPIs based on user research with project managers.",{"heading":"Outcome"},"Project managers reported 40% faster decision-making and improved budget forecasting accuracy.","Transform project data into clear, actionable priorities. Stay informed and confidently determine next steps."],"media":["l2YNMELb3Q4w99QJR4iBUFvCY.jpg"]},
-    {"title":"Workflow Unification","date":"Q4 2025","blocks":[{"heading":"Problem"},"Users struggled with context-switching between different modules, leading to inefficient workflows and cognitive overload.",{"heading":"My Approach"},"Redesigned the navigation architecture to provide consistent access to core features while introducing contextual workflows that adapt based on user tasks. Implemented breadcrumbs and quick-access shortcuts.",{"heading":"Outcome"},"Early testing shows 35% reduction in clicks to complete common tasks and improved user satisfaction scores.","A consistent, modern interface that strengthens Fohlio’s brand, simplifies navigation, and keeps users engaged"],"media":["g2IzmZGLWEbrODdmCk8MWABszA.jpg"]},
-    {"title":"Library Update","date":"Q4 2025","blocks":[{"heading":"Problem"},"The existing library system was cluttered and difficult to navigate, making it hard for users to find and manage materials and products.",{"heading":"My Approach"},"Restructured the information architecture with improved categorization, filtering, and search capabilities. Added bulk actions and smart collections to streamline library management.",{"heading":"Outcome"},"Designed to reduce time spent searching for materials by 50% and improve library organization workflows.","The redesigned side sheet introduces a cleaner layout and flexible split view, enabling users to browse products and view key details side-by-side without switching screens."],"media":["EHR0IKXd7A6ppKva8z0GZSp4U.jpg"]},
-    {"title":"Search by Image","date":"Q4 2025","blocks":[{"heading":"Problem"},"Users often had reference images but no product names, making it impossible to find matching items in the system.",{"heading":"My Approach"},"Integrated AI-powered visual search that allows users to upload images and find similar products in the library. Designed the upload flow to be intuitive and provide clear feedback on match quality.",{"heading":"Outcome"},"Expected to dramatically reduce time spent on product sourcing and improve specification accuracy.","New image-based search and Google Lens integration enable faster product discovery, linking moodboards and photos to real items while broadening Fohlio’s use from ideation through execution."],"media":["rpIOcErAkrlGTLj68YKM26m6Ys.jpg"]},
-    {"title":"Similar Items","date":"Q4 2025","blocks":[{"heading":"Problem"},"When products were unavailable or over budget, users had no easy way to discover alternatives with similar specifications.",{"heading":"My Approach"},"Designed an AI-powered recommendation system that suggests similar items based on style, specifications, and price range. Created a comparison view to help users evaluate alternatives quickly.",{"heading":"Outcome"},"Designed to increase product specification completion rates and reduce project delays due to unavailable items.","Similar Items leverages Fohlio’s Smart Search to help designers quickly find comparable products for discontinued items, improving flexibility, reducing procurement delays, and advancing intelligent sourcing across the platform."],"media":["KkR4AeGIAdIJlBSGuAb2lgKT8.jpg"]},
-    {"title":"Prototypes & Packages","date":"Q4 2025","blocks":[{"heading":"Problem"},"Creating and managing product packages for different project types was time-consuming and error-prone.",{"heading":"My Approach"},"Introduced a template system that allows users to create reusable packages and prototypes. Designed flexible customization options while maintaining consistency across projects.",{"heading":"Outcome"},"Expected to reduce package creation time by 60% and improve consistency across similar projects.","The redesigned Prototypes feature strengthens links between packages and projects with adaptable templates that support grouping, early cost estimation, and seamless exports, enhancing flexibility for diverse workflows and industries like hospitality."],"media":["OVo1LjnM5uwh7lqFxq4KdO6fY.jpg"]},
-    {"title":"Table Reskin","date":"Q4 2025","blocks":[{"heading":"Problem"},"Data tables were the most-used component but suffered from poor readability, limited functionality, and inconsistent styling.",{"heading":"My Approach"},"Redesigned tables with improved typography, better spacing, and enhanced interaction patterns. Added features like column customization, inline editing, and improved sorting/filtering.",{"heading":"Outcome"},"Currently in development with positive feedback from early user testing on readability and usability improvements.","The Table Reskin introduces a standardized, modern design for all tables, improving readability, consistency, and usability across the platform."],"media":["9CWbaOFRwGYWOk1avzDCYJQ3is.jpg"]},
-    {"title":"Design System & Process","blocks":[{"heading":"Navigation Framework"},"Consistent navigation patterns across all modules with contextual breadcrumbs and quick actions.",{"heading":"Data Table Rules"},"Standardized table components with sorting, filtering, and inline editing capabilities.",{"heading":"Design Tokens"},"Comprehensive token system for colors, typography, spacing, and elevation.","These patterns established consistency across modules and sped up development"]},
-    {"title":"Outcomes & Learnings","blocks":["The ongoing Fohlio redesign is transforming a fragmented experience into a more cohesive and modern platform built to scale with user needs. By introducing smarter workflows and a unified design system, we’re laying the groundwork for faster iteration and sustainable growth. This process has taught me how to balance innovation with familiarity, how to introduce new patterns without disrupting what users already trust. It’s also reinforced the value of systematic thinking in design, where every component and interaction contributes to a stronger, more connected product ecosystem.",{"heading":"Key Learnings"},{"list":["Design systems drive clarity — Standardizing patterns across navigation and tables made collaboration faster and more consistent.","Small automations create big impact — Streamlining everyday workflows saved time and reduced friction for teams.","Clarity beats complexity — Simplifying information flow mattered more than adding new functionality."]},"Working on Fohlio taught me how to bring order to complex, data-rich systems.",{"type":"relatedWork","slug":"spechub","eyebrow":"Next chapter · May–August 2026","title":"Spechub: a new platform from the ground up","text":"Explore the new-platform rebuild, with rethought user journeys connecting decisions, spatial context, and reusable standards. Presented as an interactive prototype."}]}
+  "title": "Fohlio",
+  "type": "Existing platform modernization",
+  "eyebrow": "Existing platform · Modernization · Q3 2024–Q1 2026",
+  "hero": [
+    "nNza2AXvSLO5QJNx2Ng3iQ6rBM.png"
+  ],
+  "problem": "Years of growth left Fohlio with inconsistent interfaces and fragmented workflows. The redesign had to simplify daily work while preserving existing projects and familiar interactions.",
+  "overview": "Fohlio helps architecture and construction teams manage specifications, sourcing, and materials. I modernized its workflows and introduced AI-assisted features.",
+  "contribution": "Product designer",
+  "duration": "Q3 2024 – Q1 2026",
+  "overviewMedia": [
+    "UIhOJi5OJAUXygp42RvsS9WvFw.png"
+  ],
+  "sections": [
+    {
+      "title": "Challenge",
+      "blocks": [
+        "Teams spent too much time navigating between tools. The redesign needed shared interface patterns, easier access to information, and compatibility with existing projects."
+      ],
+      "media": [
+        "KO8qW84U8Uze9zCAr2J3UQqxqH8.png"
+      ]
+    },
+    {
+      "title": "My Role & Process",
+      "blocks": [
+        "I moved from research to hypotheses, prototypes, and validation, then turned tested patterns into reusable components."
+      ]
+    },
+    {
+      "title": "Project Analytics",
+      "date": "Released Q3 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "Teams needed a view of budgets, resources, and project health across concurrent projects.",
+        {
+          "heading": "Design"
+        },
+        "I prioritized metrics with project managers and designed a dashboard with access to project details.",
+        {
+          "heading": "Results"
+        },
+        "Project managers reported 40% faster decisions and more accurate budget forecasts."
+      ],
+      "media": [
+        "l2YNMELb3Q4w99QJR4iBUFvCY.jpg"
+      ]
+    },
+    {
+      "title": "Workflow Unification",
+      "date": "Q4 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "Moving between modules made common tasks harder to follow.",
+        {
+          "heading": "Design"
+        },
+        "I introduced consistent navigation, contextual breadcrumbs, and shortcuts.",
+        {
+          "heading": "Results"
+        },
+        "Early testing showed 35% fewer clicks for common tasks and higher satisfaction scores."
+      ],
+      "media": [
+        "g2IzmZGLWEbrODdmCk8MWABszA.jpg"
+      ]
+    },
+    {
+      "title": "Library Update",
+      "date": "Q4 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "A cluttered library made materials hard to find and manage.",
+        {
+          "heading": "Design"
+        },
+        "I reorganized categories, search, and filters, added bulk actions and smart collections, and placed product details in a split-view side sheet.",
+        {
+          "heading": "Target"
+        },
+        "The target was to halve the time spent searching for materials; this was a goal, not a measured result."
+      ],
+      "media": [
+        "EHR0IKXd7A6ppKva8z0GZSp4U.jpg"
+      ]
+    },
+    {
+      "title": "Search by Image",
+      "date": "Q4 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "Teams had reference images but often lacked product names.",
+        {
+          "heading": "Design"
+        },
+        "I designed an image-upload flow with feedback on match quality. Visual search and Google Lens integration connect photos and moodboards to library products.",
+        {
+          "heading": "Target"
+        },
+        "The goal was to shorten sourcing time and improve specification accuracy."
+      ],
+      "media": [
+        "rpIOcErAkrlGTLj68YKM26m6Ys.jpg"
+      ]
+    },
+    {
+      "title": "Similar Items",
+      "date": "Q4 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "Unavailable or over-budget products left teams searching for alternatives.",
+        {
+          "heading": "Design"
+        },
+        "I designed recommendations based on style, specifications, and price, with a comparison view for evaluating matches.",
+        {
+          "heading": "Target"
+        },
+        "The goal was to help teams complete specifications and avoid procurement delays."
+      ],
+      "media": [
+        "KkR4AeGIAdIJlBSGuAb2lgKT8.jpg"
+      ]
+    },
+    {
+      "title": "Prototypes & Packages",
+      "date": "Q4 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "Creating product packages for each project took time and invited errors.",
+        {
+          "heading": "Design"
+        },
+        "I designed reusable templates with grouping, customization, early cost estimates, and exports.",
+        {
+          "heading": "Target"
+        },
+        "The projected reduction in package creation time was 60%; this was not a measured result."
+      ],
+      "media": [
+        "OVo1LjnM5uwh7lqFxq4KdO6fY.jpg"
+      ]
+    },
+    {
+      "title": "Table Reskin",
+      "date": "Q4 2025",
+      "blocks": [
+        {
+          "heading": "Problem"
+        },
+        "The platform’s most-used component suffered from cramped layouts and inconsistent behavior.",
+        {
+          "heading": "Design"
+        },
+        "I revised table typography and spacing, with customizable columns, inline editing, sorting, and filtering.",
+        {
+          "heading": "Status"
+        },
+        "At the time of the study, development was underway and early testers responded positively to readability and usability."
+      ],
+      "media": [
+        "9CWbaOFRwGYWOk1avzDCYJQ3is.jpg"
+      ]
+    },
+    {
+      "title": "Design System & Process",
+      "blocks": [
+        {
+          "list": [
+            "Navigation: shared breadcrumbs and quick actions.",
+            "Tables: consistent sorting, filtering, and inline editing.",
+            "Tokens: common colors, typography, spacing, and elevation."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Outcomes & Learnings",
+      "blocks": [
+        "Modernizing Fohlio taught me to introduce change without discarding what teams already know. Shared navigation and table patterns gave the redesign a foundation; each new workflow still needed testing on its own merits.",
+        {
+          "type": "relatedWork",
+          "slug": "spechub",
+          "eyebrow": "Next chapter · May–August 2026",
+          "title": "SpeCurate: designing a new platform",
+          "text": "Follow the later work on approvals, spatial planning, and reusable standards."
+        }
+      ]
+    }
   ]
 }

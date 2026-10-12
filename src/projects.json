@@ -1,9 +1,78 @@
 [
-  {"slug":"spechub","title":"SPECHUB","type":"Product design + prototyping","description":"Designing a new specification platform from the ground up. Work in progress, with Phase 1 planned for September 14, 2026.","cover":"spechub-approvals-board.jpg","coverPosition":"center top","featured":true,"relatedSlugs":["fohlio"],"nextSlug":"Nebulink"},
-  {"slug":"fohlio","title":"FOHLIO","type":"Existing platform modernization","description":"Modernizing Fohlio’s existing platform with clearer workflows and consistent interface patterns while preserving familiarity.","cover":"gGX5fkla389upDCAt9vdbyDATNM.png","featured":false,"earlier":true,"relatedSlugs":["spechub"],"nextSlug":"spechub"},
-  {"slug":"Nebulink","title":"NEBULINK","type":"Mobile + Research","description":"Designed a mobile app for a trade and learn about stock market and crypto.","cover":"4i10fexSzc7YgJQPsQeWcLponM.png","featured":true,"nextSlug":"WAO-Shop"},
-  {"slug":"WAO-Shop","title":"WAO SHOP","type":"Mobile + Research","description":"Built user engagement features to improve in-app metrics.","cover":"gvNwcg2aSCCbrckk6ZWzCsZ3k.png","featured":true,"nextSlug":"Unearth"},
-  {"slug":"Unearth","title":"UNEARTH","type":"Webpage platform","description":"Enables users to create and explore digital time capsules.","cover":"GRNlKsXza1saTUpJa9SbV3QgEBY.png","coverPosition":"center top","featured":true,"nextSlug":"fohlio"},
-  {"listed":false,"slug":"Starjob","title":"STARJOB","type":"Webpage platform","description":"A career platform for first-generation immigrants and college graduates.","cover":"OArZBUcY2XngDx59jgo9ewwnCE.png","featured":false,"earlier":true,"nextSlug":"spechub"},
-  {"listed":false,"slug":"Design-System","title":"DESIGN SYSTEM","type":"UI kit","description":"Standardized the bank's design system for scale across multiple devices.","cover":"T9xHetzVIi0WzKKrPT6MF8uFz8.png","coverPosition":"center top","featured":false,"nextSlug":"spechub"}
+  {
+    "slug": "spechub",
+    "title": "SpeCurate",
+    "type": "Product design + design system",
+    "description": "Designing clearer specification handoffs, vendor decisions, and shared interface rules with AI-assisted prototypes.",
+    "cover": "spechub-current-specifications.jpg",
+    "coverPosition": "center top",
+    "featured": true,
+    "relatedSlugs": [
+      "fohlio"
+    ],
+    "nextSlug": "Nebulink"
+  },
+  {
+    "slug": "fohlio",
+    "title": "FOHLIO",
+    "type": "Existing platform modernization",
+    "description": "Simpler sourcing and specification workflows for architecture and construction teams.",
+    "cover": "gGX5fkla389upDCAt9vdbyDATNM.png",
+    "featured": false,
+    "earlier": true,
+    "relatedSlugs": [
+      "spechub"
+    ],
+    "nextSlug": "spechub"
+  },
+  {
+    "slug": "Nebulink",
+    "title": "NEBULINK",
+    "type": "Mobile + Research",
+    "description": "A mobile app for learning about stocks and cryptocurrency and practicing trades.",
+    "cover": "4i10fexSzc7YgJQPsQeWcLponM.png",
+    "featured": true,
+    "nextSlug": "WAO-Shop"
+  },
+  {
+    "slug": "WAO-Shop",
+    "title": "WAO SHOP",
+    "type": "Mobile + Research",
+    "description": "Tools that help small business owners promote products within WAO! Shop.",
+    "cover": "gvNwcg2aSCCbrckk6ZWzCsZ3k.png",
+    "featured": true,
+    "nextSlug": "Unearth"
+  },
+  {
+    "slug": "Unearth",
+    "title": "UNEARTH",
+    "type": "Webpage platform",
+    "description": "Digital time capsules for preserving and sharing personal stories.",
+    "cover": "GRNlKsXza1saTUpJa9SbV3QgEBY.png",
+    "coverPosition": "center top",
+    "featured": true,
+    "nextSlug": "fohlio"
+  },
+  {
+    "listed": false,
+    "slug": "Starjob",
+    "title": "STARJOB",
+    "type": "Webpage platform",
+    "description": "A career platform for first-generation immigrants and college graduates.",
+    "cover": "OArZBUcY2XngDx59jgo9ewwnCE.png",
+    "featured": false,
+    "earlier": true,
+    "nextSlug": "spechub"
+  },
+  {
+    "listed": false,
+    "slug": "Design-System",
+    "title": "DESIGN SYSTEM",
+    "type": "UI kit",
+    "description": "Reusable banking components and patterns across devices.",
+    "cover": "T9xHetzVIi0WzKKrPT6MF8uFz8.png",
+    "coverPosition": "center top",
+    "featured": false,
+    "nextSlug": "spechub"
+  }
 ]

@@ -22,6 +22,29 @@ document.querySelectorAll('[data-motion-toggle]').forEach(button => button.addEv
 syncMotionPreference();
 const hero = document.querySelector('.hero');
 const portrait = hero?.querySelector('.portrait-stage');
+// Move the photograph as one surface, preserving the portrait itself.
+let portraitPointer;
+let portraitPointerFrame;
+let portraitBounds;
+const portraitProperties = ['--portrait-tilt-x', '--portrait-tilt-y', '--portrait-lift', '--portrait-shadow-x', '--portrait-shadow-y'];
+function resetPortraitPointer() {
+  cancelAnimationFrame(portraitPointerFrame);
+  portraitPointerFrame = undefined;
+  portraitPointer = undefined;
+  portraitBounds = undefined;
+  portrait?.classList.remove('is-following');
+  portraitProperties.forEach(property => portrait?.style.removeProperty(property));
+}
+function renderPortraitPointer() {
+  portraitPointerFrame = undefined;
+  if (!portraitPointer || !canAnimateHero()) return;
+  const {x, y} = portraitPointer;
+  portrait.style.setProperty('--portrait-tilt-x', `${-y * 4}deg`);
+  portrait.style.setProperty('--portrait-tilt-y', `${x * 4}deg`);
+  portrait.style.setProperty('--portrait-lift', '-5px');
+  portrait.style.setProperty('--portrait-shadow-x', `${-x * 12}px`);
+  portrait.style.setProperty('--portrait-shadow-y', `${18 - y * 6}px`);
+}
 let portraitVisible = false;
 let heroEndTimer;
 let heroRepeatTimer;
@@ -31,6 +54,7 @@ function stopHeroAnimation() {
   clearTimeout(heroRepeatTimer);
   heroEndTimer = heroRepeatTimer = undefined;
   hero?.classList.remove('is-playing');
+  resetPortraitPointer();
 }
 function playHeroAnimation() {
   if (!canAnimateHero()) { stopHeroAnimation(); return; }
@@ -52,6 +76,34 @@ if (portrait && 'IntersectionObserver' in window) {
   }, {threshold: .2});
   portraitObserver.observe(portrait);
 }
+if (portrait) {
+  const followPointer = event => {
+    if (event.pointerType !== 'mouse' || !canAnimateHero()) return;
+    if (!portraitPointer) {
+      stopHeroAnimation();
+      // Keep a stable reference while the surface tilts beneath the cursor.
+      portraitBounds = portrait.getBoundingClientRect();
+      portrait.classList.add('is-following');
+    }
+    const clamp = value => Math.max(-1, Math.min(1, value));
+    portraitPointer = {
+      x: clamp((event.clientX - portraitBounds.left) / portraitBounds.width * 2 - 1),
+      y: clamp((event.clientY - portraitBounds.top) / portraitBounds.height * 2 - 1)
+    };
+    if (portraitPointerFrame === undefined) portraitPointerFrame = requestAnimationFrame(renderPortraitPointer);
+  };
+  const leavePortrait = () => {
+    if (!portraitPointer) return;
+    resetPortraitPointer();
+    if (canAnimateHero()) heroRepeatTimer = setTimeout(playHeroAnimation, 15000);
+  };
+  addEventListener('resize', leavePortrait);
+  addEventListener('scroll', leavePortrait, {passive: true});
+  portrait.addEventListener('pointerenter', followPointer);
+  portrait.addEventListener('pointermove', followPointer);
+  portrait.addEventListener('pointerleave', leavePortrait);
+  portrait.addEventListener('pointercancel', leavePortrait);
+}
 document.addEventListener('visibilitychange', syncHeroAnimation);
 reducedMotion.addEventListener('change', syncHeroAnimation);
 addEventListener('pagehide', stopHeroAnimation);
@@ -72,21 +124,24 @@ reducedMotion.addEventListener('change', () => {
     reveals.forEach(el => el.classList.remove('is-waiting'));
   }
 });
-// Copy controls are scoped, announce success/failure, and never block email links.
+// One email action, with visible and screen-reader confirmation.
 document.querySelectorAll('[data-copy-email]').forEach(button => {
   let timer;
   button.addEventListener('click', async () => {
     const status = button.parentElement.querySelector('.copy-status');
     clearTimeout(timer);
     try {
-      await navigator.clipboard.writeText('nicksanota@gmail.com');
-      button.textContent = 'Copied ✓';
-      status.textContent = 'Email address copied.';
-      timer = setTimeout(() => { button.textContent = 'Copy ↗'; status.textContent = ''; }, 3000);
+      await navigator.clipboard.writeText(button.querySelector('.email-address').textContent);
+      status.textContent = 'Email copied ✓';
+      timer = setTimeout(() => { status.textContent = 'Click to copy email'; }, 4000);
     } catch {
-      button.textContent = 'Copy failed';
-      status.textContent = 'Could not copy. Select the email address or use the email link.';
-      status.classList.remove('sr-only');
+      // Leave the address visible and select it for manual copying if access is blocked.
+      const range = document.createRange();
+      range.selectNodeContents(button.querySelector('.email-address'));
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = 'Couldn’t copy automatically. Select the address and copy it.';
     }
   });
 });
