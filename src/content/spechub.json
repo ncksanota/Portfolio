@@ -14,17 +14,37 @@
   "heroPresentation": "desktop",
   "chapterNavigation": true,
   "problemLabel": "The design question",
-  "problem": "Specification handoffs can lose the reason behind a choice—and leave teams unsure who acts next.",
-  "overview": "SpeCurate, formerly Spechub, is a specification platform for architecture and design teams. I connect product selection, review, and revision so a changed decision has a clear next step.",
+  "problem": "Design firms work in different ways, and specification work rarely follows a straight line. How could one workspace support those differences without forcing every team through the same sequence?",
+  "overview": "SpeCurate, formerly Spechub, is a new specification platform from Fohlio for architecture and design teams. I lead its product design, shaping a workspace that connects collections, presentations, submittals, requests for quotes, and client review.",
   "role": [
-    "I design workflows and build AI-assisted prototypes with product and engineering teammates, building on their collaboration and presentation foundations. My scope also includes the design system and evolving brand identity.",
-    "These are selected decisions from an ongoing prototype, captured with demo data in October 2026. Production adoption and business outcomes have not yet been measured."
+    "As SpeCurate’s sole product designer, I lead ideation, customer research, UX/UI, and the design system in collaboration with product and engineering. I also created the platform’s brand identity and now direct a graphic designer developing its marketing guidelines.",
+    "The screens in this study show an ongoing prototype with demo data, captured in October 2026. A beta covering much of this work is planned for fall 2026, with further releases planned for the following months. Production adoption and business outcomes have not yet been measured."
   ],
-  "contribution": "Product design, AI-assisted prototyping, and design system",
+  "contribution": "Sole product designer",
   "duration": "May 2026–present",
-  "status": "Prototype · In progress",
-  "collaborators": "Product and engineering teammates",
+  "status": "Prototype · Beta planned",
+  "collaborators": "Product and engineering teammates; graphic designer for marketing guidelines",
   "sections": [
+    {
+      "id": "product-context",
+      "chapterLabel": "Research",
+      "title": "Learn how firms actually work",
+      "blocks": [
+        {
+          "heading": "Who I worked with"
+        },
+        "Research involved roughly 10–20 participants per feature, with the number varying across studies. I conducted interviews and guided prototype testing calls with interior designers, particularly senior designers and managers, design firm owners, and procurement professionals.",
+        {
+          "heading": "What we explored"
+        },
+        "The sessions covered collections, presentations, submittals, requests for quotes (RFQs), and client review and proposals. We used these conversations and walkthroughs to examine whether the developing product aligned with customers’ everyday workflows.",
+        {
+          "heading": "The finding that shaped the product"
+        },
+        "Firms organize their work differently, and their processes are not linear. A single prescribed sequence would not reflect how many customers work. This became a central design constraint: support different ways of working while keeping decisions and next steps understandable.",
+        "I synthesized insights across firms to guide decisions that would serve a range of customers. Interviews and testing led us to add steps, reorganize ideas, and surface information customers needed in their workflows. The selected decisions below show my approach to review and revision, vendor comparisons, and shared interface rules within that broader challenge."
+      ]
+    },
     {
       "id": "decision-loop",
       "chapterLabel": "Handoffs",
@@ -69,7 +89,7 @@
           "alt": "Vendor comparison with three supplier columns, pricing, lead times, availability, and alternatives",
           "caption": "Shared criteria expose the trade-offs. Values shown are demo data."
         },
-        "The matrix keeps more detail visible than a simple list. The design prioritizes comparing a small set of supplier responses in context; it still needs evaluation with working teams."
+        "The matrix keeps more detail visible than a simple list. It prioritizes comparing a small set of supplier responses in context. RFQs were part of the customer interviews and guided testing; this view illustrates the design direction rather than a measured improvement in procurement performance."
       ]
     },
     {
@@ -85,7 +105,7 @@
           "alt": "Prototype archive dialog naming the purchase order that prevents removal of an item",
           "caption": "A related product decision: explain what an action affects. This archive check names the purchase order blocking removal."
         },
-        "The prototype has begun adopting the palette and app framing; wider component adoption is ongoing. I am also developing the SpeCurate identity and new logo."
+        "The prototype has begun adopting the palette and app framing; wider component adoption is ongoing. I created SpeCurate’s logo and brand identity from scratch, using industry research and GPT-assisted logo exploration to develop the platform’s visual direction. I now direct a graphic designer completing the marketing guidelines."
       ]
     },
     {
@@ -93,22 +113,33 @@
       "chapterLabel": "How I work",
       "title": "Use AI to make the decisions tangible",
       "blocks": [
-        "I use Codex and Claude Design to build and revise working interactions. My contribution is the product logic and design judgment: deciding what belongs in a review, what moves into revision, and which patterns should be shared.",
-        "The respec iteration is one example: AI-assisted implementation made the interaction concrete, while the decision to simplify the handoff remained mine. The prototype gives the team behavior to discuss alongside the screens.",
+        "I use Codex, Claude Code, and Claude Design to build and revise functional prototypes. As new models become available, I explore how they can improve my workflow alongside developers. My contribution is the product logic, interaction structure, and design judgment that guide those prototypes.",
+        "The respec iteration is one example: AI-assisted implementation made the interaction concrete, while the decision to simplify the handoff remained mine. Working prototypes give customers and teammates behavior to explore alongside the screens.",
+        {
+          "heading": "From prototype to production"
+        },
+        "Engineering reviews the code-based prototypes and translates the intended behavior into production implementation. We collaborate on selected features to connect the design direction with technical requirements.",
         {
           "heading": "What this work establishes"
         },
-        "The work connects review and revision in an interactive prototype and establishes reusable interface rules. The next step is to test whether teams understand who acts next and can complete a revision without guidance. That is the evidence I would need before claiming a usability improvement.",
+        "Customer interviews and guided testing have shaped the platform’s direction. The prototype connects review and revision and establishes reusable interface rules, with a beta planned for fall 2026. The next stage is to learn from use in customers’ own workflows as the platform moves through its release phases.",
         {
           "type": "relatedWork",
           "slug": "fohlio",
-          "eyebrow": "Earlier work · Q3 2024–Q1 2026",
+          "eyebrow": "Related work · Existing platform",
           "title": "Fohlio: modernizing an established platform",
           "text": "Improving workflows while preserving familiar interactions."
         }
       ]
     }
   ],
-  "tools": "Codex, Claude Design, GitHub, and Figma",
-  "displayTitle": "SpeCurate"
+  "tools": "Codex, Claude Code, Claude Design, Figma, and GitHub",
+  "displayTitle": "SpeCurate",
+  "responsibilities": [
+    "Product ideation, UX, and UI direction",
+    "Customer interviews and usability testing",
+    "Functional AI-assisted prototypes",
+    "Design system and brand direction"
+  ],
+  "plannedLaunch": "Beta planned for fall 2026; phased releases to follow"
 }

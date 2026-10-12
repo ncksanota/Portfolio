@@ -1,3 +1,7 @@
 dist/
 .DS_Store
 node_modules/
+
+# Local document sources, exports, and review renders
+output/
+tmp/

@@ -1,14 +1,13 @@
 {
   "title": "Fohlio",
   "type": "Existing platform modernization",
-  "eyebrow": "Existing platform · Modernization · Q3 2024–Q1 2026",
+  "eyebrow": "Existing platform · Shipped redesign",
   "hero": [
     "nNza2AXvSLO5QJNx2Ng3iQ6rBM.png"
   ],
   "problem": "Years of growth left Fohlio with inconsistent interfaces and fragmented workflows. The redesign had to simplify daily work while preserving existing projects and familiar interactions.",
-  "overview": "Fohlio helps architecture and construction teams manage specifications, sourcing, and materials. I modernized its workflows and introduced AI-assisted features.",
+  "overview": "Fohlio helps architecture and construction teams manage specifications, sourcing, and materials. My work focused on redesigning and unifying platform features and the design language, including tools for importing information from Excel and PDF documents.",
   "contribution": "Product designer",
-  "duration": "Q3 2024 – Q1 2026",
   "overviewMedia": [
     "UIhOJi5OJAUXygp42RvsS9WvFw.png"
   ],
@@ -25,12 +24,12 @@
     {
       "title": "My Role & Process",
       "blocks": [
-        "I moved from research to hypotheses, prototypes, and validation, then turned tested patterns into reusable components."
+        "I worked from research and workflow problems through design exploration and prototypes, collaborating with product and engineering. Across the redesign, I connected local interface decisions to shared navigation, table, and component patterns.",
+        "We also used Pendo to tag actions and follow users’ click paths, focusing on points where people struggled to complete an action. This provided behavioral evidence alongside design exploration."
       ]
     },
     {
       "title": "Project Analytics",
-      "date": "Released Q3 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -41,9 +40,9 @@
         },
         "I prioritized metrics with project managers and designed a dashboard with access to project details.",
         {
-          "heading": "Results"
+          "heading": "Design intent"
         },
-        "Project managers reported 40% faster decisions and more accurate budget forecasts."
+        "Bring project metrics and access to underlying details into one view, so project managers can move from an overview to the information behind it."
       ],
       "media": [
         "l2YNMELb3Q4w99QJR4iBUFvCY.jpg"
@@ -51,7 +50,6 @@
     },
     {
       "title": "Workflow Unification",
-      "date": "Q4 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -62,9 +60,9 @@
         },
         "I introduced consistent navigation, contextual breadcrumbs, and shortcuts.",
         {
-          "heading": "Results"
+          "heading": "Design intent"
         },
-        "Early testing showed 35% fewer clicks for common tasks and higher satisfaction scores."
+        "Use shared navigation and contextual breadcrumbs to help people understand where they are and move between related tasks."
       ],
       "media": [
         "g2IzmZGLWEbrODdmCk8MWABszA.jpg"
@@ -72,7 +70,6 @@
     },
     {
       "title": "Library Update",
-      "date": "Q4 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -85,7 +82,7 @@
         {
           "heading": "Target"
         },
-        "The target was to halve the time spent searching for materials; this was a goal, not a measured result."
+        "Reduce the effort of finding materials and inspecting their details. The side sheet keeps the library in view while someone evaluates a product."
       ],
       "media": [
         "EHR0IKXd7A6ppKva8z0GZSp4U.jpg"
@@ -93,7 +90,6 @@
     },
     {
       "title": "Search by Image",
-      "date": "Q4 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -114,7 +110,6 @@
     },
     {
       "title": "Similar Items",
-      "date": "Q4 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -135,7 +130,6 @@
     },
     {
       "title": "Prototypes & Packages",
-      "date": "Q4 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -148,7 +142,7 @@
         {
           "heading": "Target"
         },
-        "The projected reduction in package creation time was 60%; this was not a measured result."
+        "Reduce repeated setup when teams create similar product packages. This was a design goal, rather than a measured outcome."
       ],
       "media": [
         "OVo1LjnM5uwh7lqFxq4KdO6fY.jpg"
@@ -156,7 +150,6 @@
     },
     {
       "title": "Table Reskin",
-      "date": "Q4 2025",
       "blocks": [
         {
           "heading": "Problem"
@@ -169,7 +162,7 @@
         {
           "heading": "Status"
         },
-        "At the time of the study, development was underway and early testers responded positively to readability and usability."
+        "The updated table design is implemented as part of the platform redesign."
       ],
       "media": [
         "9CWbaOFRwGYWOk1avzDCYJQ3is.jpg"
@@ -188,17 +181,52 @@
       ]
     },
     {
-      "title": "Outcomes & Learnings",
+      "title": "Excel and PDF imports",
       "blocks": [
-        "Modernizing Fohlio taught me to introduce change without discarding what teams already know. Shared navigation and table patterns gave the redesign a foundation; each new workflow still needed testing on its own merits.",
+        {
+          "heading": "Bring existing documents into the workflow"
+        },
+        "I designed import tools for Excel and PDF documents as part of the platform redesign. The implemented tools bring existing customer documents into the workflows inside Fohlio."
+      ]
+    },
+    {
+      "title": "Following behavior with Pendo",
+      "blocks": [
+        {
+          "heading": "How we evaluated the redesign"
+        },
+        "We tagged actions in Pendo and followed click paths to understand how existing users moved through the workflows. We paid particular attention to actions people did not complete and interaction patterns that could indicate friction.",
+        {
+          "heading": "What the evidence tells us"
+        },
+        "Pendo tracking informed our evaluation of the implemented workflows, helping us identify incomplete actions and points of friction. We used these patterns to understand how existing customers progressed through their tasks."
+      ]
+    },
+    {
+      "title": "What carries forward",
+      "blocks": [
+        "Modernizing Fohlio taught me to introduce change without discarding what teams already know. Navigation, product detail views, and table behavior need to work as a connected system. I bring that perspective into SpeCurate, where review and revision can be designed together from the start.",
         {
           "type": "relatedWork",
           "slug": "spechub",
-          "eyebrow": "Next chapter · May–August 2026",
+          "eyebrow": "Next chapter · New platform",
           "title": "SpeCurate: designing a new platform",
-          "text": "Follow the later work on approvals, spatial planning, and reusable standards."
+          "text": "Follow the work on review, revision, vendor comparison, and reusable interface rules."
         }
       ]
     }
-  ]
+  ],
+  "role": [
+    "I worked with product and engineering on workflows that existing customers already relied on. The design challenge was to make information easier to find and act on while preserving familiar interactions and compatibility with existing projects.",
+    "The redesign and Excel/PDF import tools are implemented. We used Pendo action tags and click paths to evaluate how existing customers moved through the updated workflows."
+  ],
+  "responsibilities": [
+    "Navigation and workflow design",
+    "Library search, filters, and product detail views",
+    "Excel and PDF import tools",
+    "Project analytics and data-heavy tables",
+    "Reusable interface patterns with product and engineering"
+  ],
+  "collaborators": "Product and engineering teammates",
+  "status": "Implemented · Live with customers"
 }

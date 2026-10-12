@@ -34,6 +34,7 @@ Open `/system/` in the local preview to inspect the typography, palette, spacing
 - `public/styles/primitives.css`: shared typography, layout and interaction primitives.
 - `public/style.css`: components and responsive page layouts.
 - `public/site.js`: progressive motion, demo tabs, chapter state, media behavior, email copy.
+- `public/resume`: published product-design CV, linked from About and every footer.
 - `public/assets`: original media; `optimized/` contains derived portrait variants, video posters, and a GIF still.
 
 The build writes only to `dist/`. Edit source files, not generated HTML. All content and navigation remain available without JavaScript; videos become a linear sequence and motion becomes static.
@@ -42,7 +43,7 @@ The build writes only to `dist/`. Edit source files, not generated HTML. All con
 
 The included workflow builds and checks the site and publishes `dist/` when `main` changes. In the repository, select **Settings → Pages → Build and deployment → Source: GitHub Actions**. Use a public repository for free Pages hosting on a GitHub Free account.
 
-When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. The homepage features Spechub, WAO Shop, and Nebulink; Fohlio and Unearth remain directly accessible in the More to explore index. Starjob and the banking Design System are unlisted, with their original URLs preserved for older links. Explicit next-project and related-work links from the latest project inventory are preserved.
+When published as `ncksanota/Portfolio`, the default address is `https://ncksanota.github.io/Portfolio/`. Links use relative paths, so the same build also works at a custom domain. Existing route capitalization is preserved: `/About/`, `/fohlio/`, `/Nebulink/`, `/WAO-Shop/`, `/Unearth/`, `/Starjob/`, `/Design-System/`. The homepage features SpeCurate, Fohlio, and WAO Shop; Nebulink and Unearth remain directly accessible in the More to explore index. Starjob and the banking Design System are unlisted, with their original URLs preserved for older links. Explicit next-project and related-work links from the latest project inventory are preserved.
 
 If the repository has not yet been created, sign in to the GitHub CLI with `gh auth login`, then, from this directory:
 

@@ -10,7 +10,7 @@
     "relatedSlugs": [
       "fohlio"
     ],
-    "nextSlug": "Nebulink"
+    "nextSlug": "fohlio"
   },
   {
     "slug": "fohlio",
@@ -18,12 +18,12 @@
     "type": "Existing platform modernization",
     "description": "Simpler sourcing and specification workflows for architecture and construction teams.",
     "cover": "gGX5fkla389upDCAt9vdbyDATNM.png",
-    "featured": false,
+    "featured": true,
     "earlier": true,
     "relatedSlugs": [
       "spechub"
     ],
-    "nextSlug": "spechub"
+    "nextSlug": "WAO-Shop"
   },
   {
     "slug": "Nebulink",
@@ -31,7 +31,7 @@
     "type": "Mobile + Research",
     "description": "A mobile app for learning about stocks and cryptocurrency and practicing trades.",
     "cover": "4i10fexSzc7YgJQPsQeWcLponM.png",
-    "featured": true,
+    "featured": false,
     "nextSlug": "WAO-Shop"
   },
   {
@@ -50,7 +50,7 @@
     "description": "Digital time capsules for preserving and sharing personal stories.",
     "cover": "GRNlKsXza1saTUpJa9SbV3QgEBY.png",
     "coverPosition": "center top",
-    "featured": true,
+    "featured": false,
     "nextSlug": "fohlio"
   },
   {

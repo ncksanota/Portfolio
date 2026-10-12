@@ -41,10 +41,10 @@ The build remains dependency-free. Edit source, then run `npm run build`; the se
 
 - The homepage uses a hero composition, three curated features, a compact archive containing all other studies, a working philosophy, and a contact close.
 - Case studies share a project header, reading summary, chapter navigation, content/media modules, and next-project destination. All existing case-study media remain accessible.
-- Fohlio adds qualified reported/tested results and a three-step visual decision sequence. Its complete feature descriptions remain in the chapters.
+- Fohlio adds a three-step visual decision sequence. Its complete feature descriptions remain in the chapters.
 - Multiple prototype videos use accessible tabs with arrow, Home, and End key support. Changing the selection pauses the previous video.
 - About uses the same editorial type hierarchy and contact flow.
-- The resume placeholder is omitted because no usable resume asset was supplied.
+- The final product-design CV is downloadable from About and the shared footer, using a local PDF in `public/resume/`.
 
 ## Motion behavior
 
@@ -64,7 +64,7 @@ No scroll interception is used. The portrait effect pauses offscreen, in backgro
 
 The homepage portrait has locally derived 640px and 1280px JPEG variants; originals are retained. Video posters are extracted from the existing recordings. These are delivery optimizations, not new portfolio evidence. Raster and SVG dimensions are added during the build where available.
 
-Fohlio’s source distinguishes reported and early-test results from projected benefits. The summary retains those qualifiers. Application-specific “Junior!” copy was removed. Project claims have not been independently substantiated. Resume, availability, and exact project release status still require owner-provided current information before adding new claims.
+Fohlio’s draft omits quantitative results pending confirmation of their measurement. Design goals are presented as goals. Application-specific “Junior!” copy was removed. Project claims have not been independently substantiated. Resume, availability, and exact project release status still require owner-provided current information before adding new claims.
 
 ## Verification
 
